@@ -100,7 +100,7 @@ authtenticatiounRoute.post('/signup') --> process the post from the form
 
 authtenticatiounRoute.post('/signout')
 
-Create
+CREATE
 
 1. people’s Profile
 
@@ -112,7 +112,7 @@ Create
    POST —> `user/:userId/post/:postId/review/create` —> post review creation form submission.
    Important: You need to somehow get the information from the sitter and the owner!
 
-Update
+UPDATE
 
 1. people’s profile
    GET - user/:userId/edit —> displays owner/petsitter profile edit form.
@@ -122,13 +122,14 @@ Update
    GET - user/:userId/post/:postId/edit —> displays post edit form.
    POST - user/:userId/post/:postId/edit —> post edit form submission.
 
-Delete
+DELETE
 
 3. Posts
    POST - `post/:postId/delete` —> post delete form submission.
 
 4. Review
    POST - `review/:reviewId/delete` —> post delete form submission.
+
 
 // organize routes depending on the db models
 
