@@ -18,6 +18,7 @@ const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
+const petRouter = require('./routes/pet');
 
 //Importing the models
 const User = require('./models/user');
@@ -69,6 +70,7 @@ app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/user', userRouter);
 app.use('/post', postRouter);
+app.use('/pet', petRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

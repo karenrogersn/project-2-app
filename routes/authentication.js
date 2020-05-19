@@ -12,7 +12,7 @@ authenticationRouter.get('/signup', (req, res, next) => {
 });
 
 authenticationRouter.post('/signup', (req, res, next) => {
-  const { name, email, type, location, password, pet } = req.body;
+  const { name, email, type, location, password } = req.body;
   bcryptjs
     .hash(password, 10)
     .then((hash) => {
@@ -21,19 +21,16 @@ authenticationRouter.post('/signup', (req, res, next) => {
         email,
         type,
         location,
-        passwordHash: hash,
-        pet: {
-          name,
-          species,
-          breed,
-          image,
-          comments
-        }
+        passwordHash: hash
       });
     })
     .then((user) => {
       req.session.user = user._id;
-      res.redirect('/');
+      if (user.type === 'Petsitter') {
+        res.redirect('/');
+      } else {
+        res.redirect('/pet/create');
+      }
     })
     .catch((error) => {
       next(error);

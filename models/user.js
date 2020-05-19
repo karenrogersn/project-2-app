@@ -31,12 +31,10 @@ const userSchema = new mongoose.Schema(
     pet: {
       name: {
         type: String,
-        required: true,
         trim: true
       },
       species: {
-        type: String,
-        required: true
+        type: String
       },
       breed: {
         type: String
