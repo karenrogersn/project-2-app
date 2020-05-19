@@ -12,19 +12,28 @@ authenticationRouter.get('/signup', (req, res, next) => {
 });
 
 authenticationRouter.post('/signup', (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { name, email, type, location, password, pet } = req.body;
   bcryptjs
     .hash(password, 10)
     .then((hash) => {
       return User.create({
         name,
         email,
-        passwordHash: hash
+        type,
+        location,
+        passwordHash: hash,
+        pet: {
+          name,
+          species,
+          breed,
+          image,
+          comments
+        }
       });
     })
     .then((user) => {
       req.session.user = user._id;
-      res.redirect('/private');
+      res.redirect('/');
     })
     .catch((error) => {
       next(error);
@@ -50,7 +59,7 @@ authenticationRouter.post('/signin', (req, res, next) => {
     .then((result) => {
       if (result) {
         req.session.user = user._id;
-        res.redirect('/private');
+        res.redirect('/');
       } else {
         return Promise.reject(new Error('Wrong password.'));
       }

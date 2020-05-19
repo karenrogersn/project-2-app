@@ -88,12 +88,12 @@ GET - `/frequently-asked-questions` FAQ page. Displays frequently asked question
 
 ## Authentication Router
 
-app.use('/authentication', authenticationRoute)
+app.use('/authentication', authenticationRoute) - DONE
 
 ### Sign In routes
 
-GET - `/authentication/signin` —> displays sign in form.
-POST - `/authentication/signin` —> handles sign in form submission. Signs in already registered user.
+GET - `/authentication/signin` —> displays sign in form. - DONE
+POST - `/authentication/signin` —> handles sign in form submission. Signs in already registered user. - DONE add
 
 authtenticatiounRoute.get('/signin') --> renders the form for sign in
 authtenticatiounRoute.post('/signin') --> process the post from the form
