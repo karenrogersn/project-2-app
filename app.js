@@ -16,6 +16,13 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 //Importing the routes
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
+const userRouter = require('./routes/user');
+const postRouter = require('./routes/post');
+
+//Importing the models
+const User = require('./models/user');
+const Post = require('./models/post');
+const Review = require('./models/review');
 
 const app = express();
 
@@ -60,8 +67,8 @@ app.use(bindUserToViewLocals);
 //Mounting the routes
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
-
-
+app.use('/user', userRouter);
+app.use('/post', postRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
