@@ -34,7 +34,7 @@
   \*\*\*\* Post Model
   {
 - title (type: String, minlength: 5, maxlength: 140, required: true)
-- message (type: String, maxlength: 5000)
+- message (type: String, maxlength: 2500)
 - creator: (type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User')
 - dates in wich the service is available:
 - timestamps: (createdAt: 'createdDate', updatedAt: 'updatedDate')
