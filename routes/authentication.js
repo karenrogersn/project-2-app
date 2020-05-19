@@ -65,4 +65,4 @@ authenticationRouter.post('/signout', (req, res, next) => {
   res.redirect('/');
 });
 
-module.exports = authenticationRouters;
+module.exports = authenticationRouter;
