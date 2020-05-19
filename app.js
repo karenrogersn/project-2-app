@@ -12,6 +12,8 @@ const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 const basicAuthenticationDeserializer = require('./middleware/basic-authentication-deserializer.js');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
+
+//Importing the routes
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 
@@ -55,8 +57,11 @@ app.use(
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 
+//Mounting the routes
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
+
+
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
@@ -73,4 +78,3 @@ app.use((error, req, res, next) => {
 });
 
 module.exports = app;
-
