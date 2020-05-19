@@ -8,7 +8,7 @@ const User = require('./../models/user');
 const router = new Router();
 
 router.get('/signup', (req, res, next) => {
-  res.render('sign-up');
+  res.render('signup');
 });
 
 router.post('/signup', (req, res, next) => {
@@ -32,7 +32,7 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.get('/signin', (req, res, next) => {
-  res.render('sign-in');
+  res.render('signin');
 });
 
 router.post('/signin', (req, res, next) => {
