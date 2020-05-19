@@ -9,15 +9,15 @@ const userSchema = new mongoose.Schema(
       trim: true,
       required: true
     },
-    type: {
-      type: String,
-      enum: ['Pet Owner', 'Petsitter']
-    },
     email: {
       type: String,
       required: true,
       lowercase: true,
       trim: true
+    },
+    type: {
+      type: String,
+      enum: ['Pet Owner', 'Petsitter']
     },
     location: {
       type: String,
