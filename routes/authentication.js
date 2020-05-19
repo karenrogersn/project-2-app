@@ -5,13 +5,13 @@ const { Router } = require('express');
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
 
-const router = new Router();
+const authenticationRouter = new Router();
 
-router.get('/signup', (req, res, next) => {
+authenticationRouter.get('/signup', (req, res, next) => {
   res.render('signup');
 });
 
-router.post('/signup', (req, res, next) => {
+authenticationRouter.post('/signup', (req, res, next) => {
   const { name, email, password } = req.body;
   bcryptjs
     .hash(password, 10)
@@ -31,11 +31,11 @@ router.post('/signup', (req, res, next) => {
     });
 });
 
-router.get('/signin', (req, res, next) => {
+authenticationRouter.get('/signin', (req, res, next) => {
   res.render('signin');
 });
 
-router.post('/signin', (req, res, next) => {
+authenticationRouter.post('/signin', (req, res, next) => {
   let user;
   const { email, password } = req.body;
   User.findOne({ email })
@@ -60,9 +60,9 @@ router.post('/signin', (req, res, next) => {
     });
 });
 
-router.post('/signout', (req, res, next) => {
+authenticationRouter.post('/signout', (req, res, next) => {
   req.session.destroy();
   res.redirect('/');
 });
 
-module.exports = router;
+module.exports = authenticationRouters;
