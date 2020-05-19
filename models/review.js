@@ -24,9 +24,10 @@ const reviewSchema = new mongoose.Schema({
     required: true,
     ref: 'User'
   },
-
   score: {
-    type: Number
+    type: Number,
+    min: 1,
+    max: 5
   }
 });
 

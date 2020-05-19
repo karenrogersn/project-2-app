@@ -12,4 +12,8 @@ router.get('/private', routeGuard, (req, res, next) => {
   res.render('private');
 });
 
+router.get('/faq', (req, res, next) => {
+  res.render('faq', { title: 'FAQ Section' });
+}); //FAQ page. Displays frequently asked questions.
+
 module.exports = router;

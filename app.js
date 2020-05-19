@@ -41,9 +41,10 @@ app.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 60 * 60 * 24 * 15,
-      sameSite: 'lax',
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production'
+      httpOnly: true
+      // When deploying to heroku, the following options MIGHT break cookies
+      // sameSite: 'lax',
+      // secure: process.env.NODE_ENV === 'production'
     },
     store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
@@ -73,4 +74,3 @@ app.use((error, req, res, next) => {
 
 module.exports = app;
 
-console.log('Sofia');

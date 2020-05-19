@@ -19,33 +19,39 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       trim: true
     },
-    photo: {
-      type: String
-    },
-    petImage: {
-      type: String
-    },
     location: {
       type: String,
       trim: true
     },
-    petName: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    petSpecies: {
+    passwordHash: {
       type: String,
       required: true
     },
-    breed: {
-      type: String
+
+    pet: {
+      name: {
+        type: String,
+        required: true,
+        trim: true
+      },
+      species: {
+        type: String,
+        required: true
+      },
+      breed: {
+        type: String
+      },
+      image: {
+        type: String
+      },
+      comments: {
+        type: String,
+        maxlength: 1000
+      }
     },
-    additionalComments: {
-      type: String,
-      maxlength: 1000
-    },
-    passwordHash: {
+
+    // Work on this after MVP
+    photo: {
       type: String
     },
     status: {
@@ -53,8 +59,7 @@ const userSchema = new mongoose.Schema(
       enum: ['Pending Confirmation', 'Active']
     },
     confirmationCode: {
-      type: String,
-      required: true
+      type: String
     }
   },
   { timestamps: true }

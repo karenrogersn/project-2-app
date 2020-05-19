@@ -76,115 +76,97 @@ Authentication: with mail/username and password.
 - You can only ask for a sitting job if you have a sitter profile.
 - You can visit the list of posts if you don’t have a profile.
 
-Models: 2 —> [owner/ petsitter][pet]
+Models: 2 —> [owner/ petsitter]
 
-Read
-GET - `/` —> homepage.
+# Routers
 
-View most recent posts from each pet owner
-Link to create a post.
-Link to sign up.
+## Base Router
 
-Link to sign in.
-Authtentication route
+GET - `/` —> homepage. Landing page with quick explanation of product and call to sign up and sign in.
+
+GET - `/frequently-asked-questions` FAQ page. Displays frequently asked questions.
+
+## Authentication Router
+
 app.use('/authentication', authenticationRoute)
 
+### Sign In routes
+
 GET - `/authentication/signin` —> displays sign in form.
-POST - `/authentication/signin` —> handles sign in form submission. Signs in already registered user. We need a button to create a pet profile.
+POST - `/authentication/signin` —> handles sign in form submission. Signs in already registered user.
 
 authtenticatiounRoute.get('/signin') --> renders the form for sign in
 authtenticatiounRoute.post('/signin') --> process the post from the form
 
-authtenticatiounRoute.get('/signup') --> renders the form for sign in
-authtenticatiounRoute.post('/signup') --> process the post from the form
+### Sign Up routes
 
-authtenticatiounRoute.post('/signout')
+GET - `/authentication/signup` —> displays sign up form.
 
-CREATE
+- name
+- email
+- type (select box with options Pet Owner and Pet Sitter)
+- password
+- petName
+- petSpecies
+- petBreed
+- petComments
 
-1. people’s Profile
-
-2) Posts
-   GET - `user/:userId/post/create` —> displays post creation view from the owner’s personal page.
-   POST - `user/:userId/post/create` —> post creation form submission.
-
-4. Reviews
-   POST —> `user/:userId/post/:postId/review/create` —> post review creation form submission.
-   Important: You need to somehow get the information from the sitter and the owner!
-
-UPDATE
-
-1. people’s profile
-   GET - user/:userId/edit —> displays owner/petsitter profile edit form.
-   POST - user/:userId/edit —> owner/petsitter profile edit form submission.
-
-2. Posts
-   GET - user/:userId/post/:postId/edit —> displays post edit form.
-   POST - user/:userId/post/:postId/edit —> post edit form submission.
-
-DELETE
-
-3. Posts
-   POST - `post/:postId/delete` —> post delete form submission.
-
-4. Review
-   POST - `review/:reviewId/delete` —> post delete form submission.
-
-
-// organize routes depending on the db models
-
-//USERS --> /user in the app.js
-
-Create
-
-Read
-
-GET - /:userId [/user/:userId] -> displays the information of the user
-
-Update
-
-GET - /:userId/edit [user/:userId/edit] —> displays owner/petsitter profile edit form.
-POST - /:userId/edit [user/:userId/edit] —> owner/petsitter profile edit form submission.
-
-//AUTHENTICATION --> /authentication in the app.js
+POST - `/authentication/signup` —> handles sign up form submission. Signs up new user, hashing the password, saving all of the user properties + pet properties nested in `pet` property.
 
 authtenticatiounRoute.get('/signup') --> renders the form for sign in
 authtenticatiounRoute.post('/signup') --> process the post from the form
 
-authtenticatiounRoute.get('/signin') --> renders the form for sign in
-authtenticatiounRoute.post('/signin') --> process the post from the form
+### Sign Out route
+
+POST - `/signout` - Sign out the user calling req.logout();
 
 authtenticatiounRoute.post('/signout')
 
-//POSTS --> /posts in the app.js
-Create
+## Post Router
 
-GET - /create [posts/create] —> displays post creation view from the owner’s personal page.
-POST - /create [posts/create] —> post creation form submission.
+app.use('/post', postRouter)
 
-Read
-GET - / [/posts] -> display all of the posts
-GET - /:postId [/posts/post:Id] -> display a specifi post
+### Post Listing
 
-Update
+GET - `/list` - display all of the posts
 
-GET - /:postId/edit[/post/:postId/edit] —> displays post edit form.
-POST - /:postId/edit[/post/:postId/edit] —> post edit form submission.
+### Post creation
 
-Delete
+GET - `/create` —> displays post creation view from the owner’s personal page.
+POST - `/create` —> post creation form submission.
 
-POST - /:postId/delete [post/:postId/delete] —> post delete form submission.
+### Post edit
 
-//REVIEWS --> /reviews in the app.js
-Create
+GET - `/:postId/edit` —> displays post edit form.
+POST - `/:postId/edit` —> post edit form submission.
 
-GET -> /create/:sitterID/:petOwnerID [/reviews/create/:sitterID/:petOwnerID] -> when in the users profile, you click a button for reviews that goes to this page and renders a form for you to leave a review
-POST —> /create/:sitterID/:petOwnerID [/reviews/create/:sitterID/:petOwnerID] —> post review creation form submission.
-Important: You need to somehow get the information from the sitter and the owner!
+### Post delete
 
-Update
-GET -> /edit/:reviewID [/reviews/edit/:reviewID] -> displays the already created review for it to be updated
-POST -> /edit/:reviewID [/reviews/edit/:reviewID] -> handles the update of the review
+POST - `/:postId/delete` —> post delete form submission.
 
-Delete
-POST -> /delete/:reviewID [/reviews/edit/:reviewID] -> handles the delete of the review
+## Profile Router
+
+app.use('/user', userRouter);
+
+### Display profile routes
+
+GET - `/:userId` - Displays the information of the user. Displaying user posts. Display reviews made about user. Should have a button that allows other user to create review.
+
+### Create user review
+
+GET - `/:userId/review/create` - Display review creation form.
+POST - `/:userId/review/create` - Handle review creation form submission.
+
+### Edit user review
+
+GET - `/:userId/review/edit` - Display review creation form, prefilled with already made review (in route handler you need to look up the review with receipient req.params.userId and creator req.user.\_id).
+POST - `/:userId/review/edit` - Handle review creation form submission.
+
+### Delete review
+
+POST - `/:userId/review/delete` - Handle review creation form submission.
+
+### Profile editing
+
+GET - `/edit` —> displays owner/petsitter profile edit form.
+POST - `/edit` —> owner/petsitter profile edit form submission.
