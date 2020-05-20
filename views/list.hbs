@@ -6,7 +6,10 @@
     <p>{{ endDate }}</p>
 
     <p>Are you interested in providing this service?</p>
+    <form action="/post/{{_id}}/contactowner" method="POST">
         <button>Contact the Pet Owner</button>
+    </form>
+
     {{/each}}
 
 </div>

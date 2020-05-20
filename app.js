@@ -16,43 +16,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 const hbs = require('hbs');
 
-const nodemailer = require('nodemailer');
 
-//Step 1
-const transporter = nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: process.env.NODEMAILER_EMAIL,
-    pass: process.env.NODEMAILER_PASSWORD
-  }
-});
 
-transporter.use(
-  'compile',
-  hbs({
-    viewEngine: 'express-handlebars',
-    viewPath: '/views/'
-  })
-);
 
-//Step 2
-const mails = {
-  from: `caremypet2@gmail.com`,
-  to: `caremypet2@gmail.com`,
-  subject: `There's a petsitter interested in your post`,
-  text: `It works`,
-  template: 'mail'
-};
 
-//Step 3
-transporter
-  .sendMail(mails)
-  .then(() => {
-    console.log('Email was sent successfully');
-  })
-  .catch((err) => {
-    console.log('Error occurred', err);
-  });
 
 //Importing the routes
 const indexRouter = require('./routes/index');
