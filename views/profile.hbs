@@ -8,24 +8,27 @@
 <p>Location (city): {{location}}</p>
 <a href="/user/edit">Edit your info</a>
 
+
 <h3>Pet Details</h3>
 {{#with pet}}
 <ul>
 <li>Pet name: {{name}}</li>
 <li>Species: {{species}}</li>
-<li>{{#if breed}}Breed: {{breed}} {{/if}}</li>
+{{#if breed}}<li>Breed: {{breed}} {{/if}}</li>
 </ul>
 {{/with}}
 <a href="/pet/{{_id}}/petedit">Edit your pet's info</a>
 <p>{{comments}}</p>
-
-
 {{/with}}
+
+
 {{#if user.pet}}
 
 {{#each posts}}
 <h1>{{title}}</h1>
 <p>{{message}}</p>
+<p>Are you interested in providing this service?</p>
+  <button>Contact the Pet Owner</button>
 {{/each}}
 
 {{#each reviews}}
