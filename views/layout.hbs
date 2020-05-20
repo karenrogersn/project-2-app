@@ -10,6 +10,10 @@
   <body>
     <nav>
       <a href="/">Home</a>
+      <a href="/aboutus">About us</a>
+      <a href="/faq">FAQ</a>
+      <a href="/post">Posts</a>
+      
       {{#if user}}
      <a href="/user/{{user._id}}">{{user.name}}'s Profile</a> 
         <form action="/authentication/signout" method="POST">
@@ -18,6 +22,7 @@
         {{else}}
         <a href="/authentication/signin">Sign In</a>
         <a href="/authentication/signup">Sign Up</a>
+
       {{/if}}
     </nav>
     {{{body}}}

@@ -32,7 +32,7 @@ postRouter.post('/postcreate', (req, res, next) => {
     endDate
   })
     .then((post) => {
-      res.render('profile', { post }); //when the user creates a post, they will see their profile with the created post.
+      res.redirect(`/user/${req.user._id}`); //when the user creates a post, they will see their profile with the created post.
     })
     .catch((error) => {
       next(error);

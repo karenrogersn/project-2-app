@@ -13,18 +13,21 @@ const serveFavicon = require('serve-favicon');
 const basicAuthenticationDeserializer = require('./middleware/basic-authentication-deserializer.js');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 
-
 //Importing the routes
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
 const petRouter = require('./routes/pet');
+const reviewRouter = require('./routes/review');
+const hbs = require('hbs');
 
 const app = express();
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+hbs.registerPartials(join(__dirname, 'views/partials'));
 
 app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
 app.use(
@@ -46,7 +49,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     cookie: {
-      maxAge: 60 * 60 * 24 * 15,
+      maxAge: 15 * 60 * 60 * 24 * 15,
       httpOnly: true
       // When deploying to heroku, the following options MIGHT break cookies
       // sameSite: 'lax',
@@ -67,6 +70,7 @@ app.use('/authentication', authenticationRouter);
 app.use('/user', userRouter);
 app.use('/post', postRouter);
 app.use('/pet', petRouter);
+app.use('/review', reviewRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
