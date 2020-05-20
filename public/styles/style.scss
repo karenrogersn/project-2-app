@@ -1,5 +1,9 @@
-$font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $grey: hsla(0, 0, 75%, 0.5);
+
+@font-face {
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
+  font-family: 'Poppins', sans-serif;
+}
 
 * {
   &,
@@ -13,8 +17,7 @@ body {
   max-width: 52em;
   padding: 0 1em;
   margin: 0 auto;
-  font-family: sans-serif;
-  font-family: $font-sans;
+  font-family: 'Poppins', sans-serif;
   line-height: 2;
 }
 
@@ -75,4 +78,32 @@ button,
 textarea {
   min-height: 8em;
   resize: vertical;
+}
+
+//Profile styling
+
+.profile-buttons {
+  display: flex;
+}
+.button {
+  //font-family: 'Poppins', sans-serif
+  background-color: #a0a6a6;
+  box-shadow: 4px 4px 0 rgba(251, 59, 73, 0.2);
+  padding: 6px 12px;
+  width: 10em;
+  height: 2em;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 0.3em;
+}
+.button p {
+  color: #000;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.button:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: darkgrey;
 }

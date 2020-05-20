@@ -17,10 +17,6 @@ dotenv.config();
 const hbs = require('hbs');
 
 
-
-
-
-
 //Importing the routes
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');

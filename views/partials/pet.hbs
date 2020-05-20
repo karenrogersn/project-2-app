@@ -1,0 +1,11 @@
+
+<h3>Pet Details</h3>
+{{#with pet}}
+<ul>
+<li>Pet name: {{name}}</li>
+<li>Species: {{species}}</li>
+{{#if breed}}<li>Breed: {{breed}} {{/if}}</li>
+</ul>
+<a href="/pet/{{_id}}/petedit">Edit your pet's info</a>
+<p>{{comments}}</p>
+{{/with}}

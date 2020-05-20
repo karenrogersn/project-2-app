@@ -8,7 +8,6 @@
 <p>Location (city): {{location}}</p>
 <a href="/user/edit">Edit your info</a>
 
-
 <h3>Pet Details</h3>
 {{#with pet}}
 <ul>
@@ -20,6 +19,7 @@
 <a href="/pet/{{_id}}/petedit">Edit your pet's info</a>
 <p>{{comments}}</p>
 {{/with}}
+
 
 
 {{#if user.pet}}
@@ -38,7 +38,10 @@
 <!--
     DISPLAY USER'S POST AND REVIEWS
 -->
-<button type="button" onclick="location.href='/post/postcreate'">Create a Post</button>
+<div class="profile-buttons">
+<a class="button" href='/post/postcreate'><p>Create a Post</p></a>
 {{/if}}
 
-<button type="button" onclick="location.href='/review/{{user._id}}/reviewcreate'">Create a Review for this user</button>
+<a class="button" href='/review/{{user._id}}/reviewcreate'><p>Create a Review for this user</p></a>
+
+</div>
