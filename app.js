@@ -16,7 +16,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 const hbs = require('hbs');
 
-
 //Importing the routes
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
@@ -68,6 +67,9 @@ app.use(
 );
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
+
+//Setting up image visualization
+app.use(express.static(process.env.PWD + '/images'));
 
 //Mounting the routes
 app.use('/', indexRouter);
