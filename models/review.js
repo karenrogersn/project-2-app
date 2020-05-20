@@ -1,5 +1,7 @@
 'use strict';
 
+console.log(Review model)
+
 const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
