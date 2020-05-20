@@ -5,23 +5,23 @@ const Review = require('./../models/review');
 const reviewRouter = new Router();
 
 //review creation view from the user’s ID
-reviewRouter.get('/:userId/review/create', (req, res, next) => {
+reviewRouter.get('/:userId/reviewcreate', (req, res, next) => {
   console.log('create review');
-  res.render('review');
+  res.render('reviewcreate');
 });
 
-reviewRouter.post('/:userId/review/create', (req, res, next) => {
+reviewRouter.post('/:userId/reviewcreate', (req, res, next) => {
   const { title, message, recipient, score } = req.body;
-  reviewRouter
-    .create({
-      title,
-      message,
-      creator: req.user,
-      recipient,
-      score
-    })
+  const userId = req.params.userId;
+  Review.create({
+    title,
+    message,
+    creator: req.user,
+    recipient: userId,
+    score
+  })
     .then((review) => {
-      res.render('private', { review });
+      res.redirect(`/user/${req.user._id}`);
     })
     .catch((error) => {
       next(error);
@@ -34,8 +34,8 @@ reviewRouter.get(`/:userId/review/edit`, (req, res, next) => {
 });
 
 reviewRouter.post(`/:userId/review/edit`, (req, res, next) => {
-  reviewRouter
-    .findByIdAndUpdate(userId, {})
+  const userId = req.params.userId;
+  Review.findByIdAndUpdate(userId, {})
     .then(() => {})
     .catch((error) => {
       next(error);

@@ -56,7 +56,7 @@ authenticationRouter.post('/signin', (req, res, next) => {
     .then((result) => {
       if (result) {
         req.session.user = user._id;
-        res.redirect('/');
+        res.redirect(`/user/${user._id}`);
       } else {
         return Promise.reject(new Error('Wrong password.'));
       }

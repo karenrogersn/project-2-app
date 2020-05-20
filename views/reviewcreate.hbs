@@ -1,0 +1,14 @@
+<form action="" method="POST">
+
+<label for="review-title">Review Title</label>
+  <input type="text" id="review-title" name="title" required minlength="5" maxlength="140" placeholder="Give this post s title" />
+  
+  <label for="review-message">Message</label>
+  <textarea id="review-message" name="message" required placeholder="Describe how was your experience with this user" maxlength="2000"></textarea>
+  
+  <label for="score">Give this user a score:</label>
+  <input type="number" id="score" name="score" required min="1" max="5"/>
+
+  <button>Publish</button>
+
+</form>
