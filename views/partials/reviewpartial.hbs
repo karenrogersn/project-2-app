@@ -1,0 +1,27 @@
+<a href='user/{{id}}'>
+    <title>{{ user.name }}'s reviews</title>
+    <p>Message</p>
+    <span>Reviewed by {{ user._id }}</span>
+    SCORE
+</a>
+
+<h1>Edit Review</h1>
+
+<form action="" method="POST">
+  <label for="input-title">{{ user.name }}'s reviews</label>
+  <input type="text" id="user-reviews" name="title" value="{{ user.name }}" placeholder="Your Reviews" />
+
+  <label for="input-message">Share with us your experience with ..........</label>
+  <input type="text" id="input-message" name="message" value="{{ user.email }}" placeholder="Tell us about your experience in a particular service" />
+  
+  <label for="input-creator"> {{  }}</label>
+  <input type="text" id="input-creator" name="creator" value="{{ user.name }}" placeholder="Who is doing the review" />
+  
+  <label for="input-recipient">Who is getting the review</label>
+  <input type="text" id="input-recipient" name="recipient" value="{{ user.name }}" placeholder="Who is getting the review" />
+
+
+
+
+  <button>Edit Review</button>
+</form>

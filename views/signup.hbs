@@ -6,7 +6,12 @@
   <input type="email" id="input-email" name="email" placeholder="Your Email" />
 
   <label for="input-type">Type</label>
-  <input type="text" id="input-type" name="type" placeholder="Are you a [Pet Owner] or a [Petsitter]?" />
+  <input required type="text" id="input-type" name="type" placeholder="Are you a [Pet Owner] or a [Petsitter]?" />
+  <p>What kind of user are you?</p>
+  <select name="type" id="type-input">
+    <option value="Coffee Shop">Pet Owner</option>
+    <option value="Bookstore">Petsitter</option>
+  </select>
 
   <label for="input-location">Location</label>
   <input type="text" id="input-location" name="location" placeholder="Where are you at?" />

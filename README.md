@@ -86,21 +86,21 @@ GET - `/` —> homepage. Landing page with quick explanation of product and call
 
 GET - `/frequently-asked-questions` FAQ page. Displays frequently asked questions.
 
-## Authentication Router
+## Authentication Router - DONE
 
-app.use('/authentication', authenticationRoute) - DONE
+app.use('/authentication', authenticationRouter)
 
-### Sign In routes
+### Sign In routes - DONE
 
-GET - `/authentication/signin` —> displays sign in form. - DONE
-POST - `/authentication/signin` —> handles sign in form submission. Signs in already registered user. - DONE add
+GET - `/authentication/signin` —> displays sign in form.
+POST - `/authentication/signin` —> handles sign in form submission. Signs in already registered user.
 
 authtenticatiounRoute.get('/signin') --> renders the form for sign in
 authtenticatiounRoute.post('/signin') --> process the post from the form
 
-### Sign Up routes
+### Sign Up routes - DONE
 
-GET - `/authentication/signup` —> displays sign up form.
+GET - `/authentication/signup` —> displays sign up form. - DONE
 
 - name
 - email
@@ -118,11 +118,11 @@ authtenticatiounRoute.post('/signup') --> process the post from the form
 
 ### Sign Out route
 
-POST - `/signout` - Sign out the user calling req.logout();
+POST - `/signout` - Sign out the user calling req.logout(); ----------> Why? Ins't it req.session.destroy?
 
 authtenticatiounRoute.post('/signout')
 
-## Post Router
+## Post Router - DONE
 
 app.use('/post', postRouter)
 
@@ -130,7 +130,7 @@ app.use('/post', postRouter)
 
 GET - `/list` - display all of the posts
 
-### Post creation
+### Post creation - DONE
 
 GET - `/create` —> displays post creation view from the owner’s personal page.
 POST - `/create` —> post creation form submission.
@@ -144,7 +144,7 @@ POST - `/:postId/edit` —> post edit form submission.
 
 POST - `/:postId/delete` —> post delete form submission.
 
-## Profile Router
+## Profile Router - DONE
 
 app.use('/user', userRouter);
 
@@ -152,7 +152,7 @@ app.use('/user', userRouter);
 
 GET - `/:userId` - Displays the information of the user. Displaying user posts. Display reviews made about user. Should have a button that allows other user to create review.
 
-### Create user review
+### Create user review - DONE
 
 GET - `/:userId/review/create` - Display review creation form.
 POST - `/:userId/review/create` - Handle review creation form submission.

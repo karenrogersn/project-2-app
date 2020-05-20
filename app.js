@@ -19,6 +19,7 @@ const authenticationRouter = require('./routes/authentication');
 const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
 const petRouter = require('./routes/pet');
+const reviewRouter = require('./routes/review');
 
 //Importing the models
 const User = require('./models/user');
@@ -29,6 +30,8 @@ const app = express();
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
 app.use(
@@ -71,6 +74,7 @@ app.use('/authentication', authenticationRouter);
 app.use('/user', userRouter);
 app.use('/post', postRouter);
 app.use('/pet', petRouter);
+app.use('/review', reviewRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
