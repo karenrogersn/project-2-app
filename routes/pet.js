@@ -26,7 +26,7 @@ petRouter.post('/create', (req, res, next) => {
   User.findByIdAndUpdate(userId, {
     pet
   })
-    .then((user) => res.redirect('/'))
+    .then((user) => res.render('profile'))
     .catch((error) => next(error));
 }); //this will post the pet information on the user
 

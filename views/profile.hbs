@@ -1,0 +1,34 @@
+
+<h1>User Profile</h1>
+{{#with user}}
+<p>Name: {{name}}</p>
+<p>Type of user: {{type}}</p>
+<p>Mail of contact: {{email}}</p>
+<p>Location (city): {{location}}</p>
+
+
+<h3>Pet Details</h3>
+{{#with pet}}
+<ul>
+<li>Pet name: {{name}}</li>
+<li>Species: {{species}}</li>
+<li>{{#if breed}}Breed: {{breed}} {{/if}}</li>
+</ul>
+<p>{{comments}}</p>
+
+{{/with}}
+{{/with}}
+{{#if user.pet}}
+
+{{#each posts}}
+<h1>{{title}}</h1>
+<p>{{message}}</p>
+{{/each}}
+
+<!--
+    DISPLAY USER'S POST AND REVIEWS
+-->
+<button type="button" onclick="location.href='/post/postcreate'">Create a Post</button>
+{{/if}}
+
+<button type="button" onclick="location.href='/reviewcreate'">Create a Review for this usert</button>

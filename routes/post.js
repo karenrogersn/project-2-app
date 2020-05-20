@@ -16,23 +16,23 @@ postRouter.get('/list', (req, res, next) => {
 });
 
 //post creation view from the owner’s personal page.
-postRouter.get('/create', (req, res, next) => {
+postRouter.get('/postcreate', (req, res, next) => {
   console.log('create a place');
-  res.render('post');
+  res.render('postcreate');
 });
 
-//post creation form submission. This is accessed from the owners profile
-postRouter.post('/create', (req, res, next) => {
-  const { title, message, creator, startDate, endDate } = req.body;
+//post creation form submission. This has to be done from the owners profile
+postRouter.post('/postcreate', (req, res, next) => {
+  const { title, message, startDate, endDate } = req.body;
   Post.create({
     title,
     message,
-    creator,
+    creator: req.user,
     startDate,
     endDate
   })
     .then((post) => {
-      res.render('private', { post }); //when the user creates a post, they will see their profile with the created post.
+      res.render('profile', { post }); //when the user creates a post, they will see their profile with the created post.
     })
     .catch((error) => {
       next(error);

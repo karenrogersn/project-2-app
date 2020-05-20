@@ -13,17 +13,13 @@ const serveFavicon = require('serve-favicon');
 const basicAuthenticationDeserializer = require('./middleware/basic-authentication-deserializer.js');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 
+
 //Importing the routes
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
 const petRouter = require('./routes/pet');
-
-//Importing the models
-const User = require('./models/user');
-const Post = require('./models/post');
-const Review = require('./models/review');
 
 const app = express();
 
