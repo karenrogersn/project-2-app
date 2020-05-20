@@ -2,7 +2,7 @@
 
 require('dotenv').config();
 
-console.log('Hola TAs!');
+console.log('The best TAs!');
 
 const debug = require('debug')('project-2-app:server');
 const app = require('./app');
