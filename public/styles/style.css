@@ -13,20 +13,22 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none; }
+  text-decoration: none;
+  color: #444; }
 
 nav {
-  display: flex; }
+  display: flex;
+  justify-content: flex-end; }
+  nav a:hover {
+    text-decoration: none;
+    color: #000; }
   nav a,
   nav button {
-    padding: 1em 0;
+    padding: 1em 0.8em;
     border: 0; }
     nav a:not(:last-child),
     nav button:not(:last-child) {
       margin-right: 1em; }
-    nav a:first-child,
-    nav button:first-child {
-      margin-right: auto; }
 
 h1,
 h2,
@@ -68,6 +70,7 @@ textarea {
   background-image: url("/images/markus-spiske--KSoCzdGRqE-unsplash.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -92,8 +95,15 @@ textarea {
   text-align: center;
   font-weight: 300; }
 
-.aboutus {
-  padding: 70px 0; }
+.home-button {
+  background-image: url("/images/logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 3em;
+  height: 3em;
+  width: 3em; }
 
 .title {
   text-align: center; }
@@ -274,31 +284,41 @@ textarea {
   height: 30em;
   width: 48em;
   background-size: 45em 28em;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
   .post .title {
     font-size: 1.5em;
     text-align: center;
     font-weight: 500;
-    padding-top: 1em;
+    position: relative;
+    bottom: 3em;
     color: #40413f; }
   .post .message {
-    max-width: 30em;
+    max-width: 38em;
+    max-height: 25em;
     font-size: 1em;
     font-weight: 300;
     text-align: center;
-    line-height: 1em;
-    margin-bottom: 7em; }
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    position: relative;
+    bottom: 2em; }
   .post .caption {
     margin-left: 8em;
     background-color: rgba(255, 204, 53, 0.4);
     transform: skew(9deg, 0deg);
     font-style: italic;
-    max-width: 60%;
-    text-align: center; }
+    max-width: 50%;
+    text-align: center;
+    position: relative;
+    bottom: 1em; }
   .post .button {
     position: relative;
-    bottom: 1.2em;
-    left: 24em; }
+    bottom: 2.7em;
+    left: 10em; }
 
 .review {
   background-color: #fff;
