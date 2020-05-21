@@ -5,6 +5,8 @@
 
 body {
   max-width: 52em;
+  padding: 0 0.5em;
+  margin: 0 auto;
   min-height: 100%;
   font-family: 'Poppins', sans-serif;
   line-height: 2; }
@@ -62,6 +64,34 @@ textarea {
   min-height: 8em;
   resize: vertical; }
 
+.home-background {
+  background-image: url("/images/markus-spiske--KSoCzdGRqE-unsplash.png");
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .home-background .main-title {
+    font-weight: 300;
+    font-size: 3em;
+    color: #fff;
+    font-family: 'Roboto', sans-serif; }
+
+.homepage-button {
+  width: 10em;
+  height: 3.3em;
+  padding: 16px 20px;
+  background-color: #ef6327;
+  border-radius: 0.3em;
+  color: #fff;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: 300; }
+
 .aboutus {
   padding: 70px 0; }
 
@@ -115,32 +145,41 @@ textarea {
   width: 15em;
   align-self: center; }
 
-.home-background {
-  background-image: url("/images/markus-spiske--KSoCzdGRqE-unsplash.png");
-  background-size: cover;
-  background-position: center;
-  position: fixed;
-  height: 100%;
-  width: 100%;
+.user-profile,
+.pet-profile {
+  background-color: #fff;
+  box-shadow: 5px 5px 15px grey;
+  margin-bottom: 2em;
+  height: 15em; }
+
+.profile-title {
+  font-size: 1em;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1em;
+  padding-top: 1em;
+  margin-bottom: 0;
+  background-color: #66777770;
+  transform: skew(9deg, 0deg);
+  max-width: 30%; }
+
+.user-image {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 3em;
+  width: 3em;
+  position: relative;
+  left: 1em;
+  bottom: 0.7em;
+  margin-right: 0.5em; }
+
+.img {
+  object-fit: cover; }
+
+.user-name-display {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
-  .home-background .main-title {
-    font-weight: 300;
-    font-size: 3em;
-    color: #fff;
-    font-family: 'Roboto', sans-serif; }
-  .home-background .homepage-button {
-    width: 10em;
-    height: 3.3em;
-    padding: 16px 20px;
-    background-color: #ef6327;
-    border-radius: 0.3em;
-    color: #fff;
-    font-size: 1.1em;
-    text-align: center;
-    font-weight: 300; }
+  justify-content: flex-start;
+  align-items: center; }
 
 .profile-container .profile-title {
   font-size: 1em;
@@ -153,203 +192,135 @@ textarea {
   transform: skew(9deg, 0deg);
   max-width: 30%; }
 
-.profile-container .user-image {
-  border-radius: 50%;
-  overflow: hidden;
-  height: 3em;
-  width: 3em; }
-
-.profile-container .img {
-  object-fit: cover; }
-
 .user-profile,
 .pet-profile {
   background-color: #fff;
   box-shadow: 5px 5px 15px grey;
   margin-bottom: 2em;
   height: 15em; }
-  .user-profile .home-background,
-  .pet-profile .home-background {
-    background-image: url("/markus-spiske--KSoCzdGRqE-unsplash.png");
-    background-size: cover;
-    background-position: center;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; }
-    .user-profile .home-background .main-title,
-    .pet-profile .home-background .main-title {
-      font-weight: 300;
-      font-size: 3em;
-      color: #fff;
-      font-family: 'Roboto', sans-serif; }
-  .user-profile .homepage-button,
-  .pet-profile .homepage-button {
-    width: 10em;
-    height: 3.3em;
-    padding: 16px 20px;
-    background-color: #ef6327;
-    border-radius: 0.3em;
-    color: #fff;
-    font-size: 1.1em;
+  .user-profile p,
+  .user-profile a,
+  .user-profile li,
+  .pet-profile p,
+  .pet-profile a,
+  .pet-profile li {
+    padding-left: 1em;
+    font-weight: 200;
+    line-height: 0.8em;
+    font-size: 1em;
+    letter-spacing: 1px; }
+  .user-profile li,
+  .pet-profile li {
+    font-weight: 200;
+    line-height: 1.5em;
+    font-size: 1em;
+    letter-spacing: 1px; }
+
+.edit-button {
+  color: #fff;
+  font-size: 3em;
+  background-color: #525351;
+  box-shadow: 4px 4px 0 #a0a6a6;
+  padding: 6px 12px;
+  width: 10em;
+  height: 3em;
+  border-radius: 0.3em;
+  margin-left: 1em;
+  position: relative;
+  top: 0.2em; }
+  .edit-button :hover {
+    text-decoration: none;
+    color: #fff; }
+
+.pet {
+  position: relative;
+  top: 2.8em; }
+
+.profile-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  margin-bottom: 3em; }
+
+.button {
+  background-color: #ffc300;
+  box-shadow: 4px 4px 0 #a0a6a6;
+  padding: 6px 12px;
+  width: 10em;
+  height: 3em;
+  border-radius: 0.3em;
+  margin: 15px; }
+  .button p {
+    color: #313333;
+    padding-top: 5px;
+    font-size: 1em;
     text-align: center;
-    font-weight: 300; }
-  .user-profile .profile-container .profile-title,
-  .pet-profile .profile-container .profile-title {
+    line-height: 1.5;
+    text-align: center; }
+  .button p:hover {
+    color: #000;
+    cursor: pointer; }
+  .button a,
+  .button a:link,
+  .button a:visited,
+  .button a:hover,
+  .button a:active {
+    text-decoration: none;
+    border-bottom: none; }
+
+.post {
+  background-image: url("/images/bubble.png");
+  background-position: center;
+  height: 30em;
+  width: 48em;
+  background-size: 45em 28em;
+  background-repeat: no-repeat; }
+  .post .title {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 500;
+    padding-top: 1em;
+    color: #40413f; }
+  .post .message {
+    max-width: 30em;
+    font-size: 1em;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1em;
+    margin-bottom: 7em; }
+  .post .caption {
+    margin-left: 8em;
+    background-color: rgba(255, 204, 53, 0.4);
+    transform: skew(9deg, 0deg);
+    font-style: italic;
+    max-width: 60%;
+    text-align: center; }
+  .post .button {
+    position: relative;
+    bottom: 1.2em;
+    left: 24em; }
+
+.review {
+  background-color: #fff;
+  box-shadow: 5px 5px 15px grey;
+  margin-bottom: 2em;
+  height: 10em; }
+  .review .title {
     font-size: 1em;
     font-weight: 500;
     font-style: italic;
     line-height: 1em;
     padding-top: 1em;
-    margin-bottom: 0;
+    padding-left: 1em;
     background-color: #66777770;
     transform: skew(9deg, 0deg);
     max-width: 30%; }
-  .user-profile .user-profile,
-  .user-profile .pet-profile,
-  .pet-profile .user-profile,
-  .pet-profile .pet-profile {
-    background-color: #fff;
-    box-shadow: 5px 5px 15px grey;
-    margin-bottom: 2em;
-    height: 15em; }
-    .user-profile .user-profile p,
-    .user-profile .user-profile a,
-    .user-profile .user-profile li,
-    .user-profile .pet-profile p,
-    .user-profile .pet-profile a,
-    .user-profile .pet-profile li,
-    .pet-profile .user-profile p,
-    .pet-profile .user-profile a,
-    .pet-profile .user-profile li,
-    .pet-profile .pet-profile p,
-    .pet-profile .pet-profile a,
-    .pet-profile .pet-profile li {
-      padding-left: 1em;
-      font-weight: 200;
-      line-height: 0.8em;
-      font-size: 1em;
-      letter-spacing: 1px; }
-    .user-profile .user-profile li,
-    .user-profile .pet-profile li,
-    .pet-profile .user-profile li,
-    .pet-profile .pet-profile li {
-      font-weight: 200;
-      line-height: 1.5em;
-      font-size: 1em;
-      letter-spacing: 1px; }
-  .user-profile .post,
-  .pet-profile .post {
-    background-image: url("/images/output-onlinepngtools.png");
-    background-position: center;
-    height: 30em;
-    max-width: 45em;
-    background-repeat: no-repeat; }
-    .user-profile .post :hover,
-    .pet-profile .post :hover {
-      text-decoration: none;
-      color: #fff; }
-  .user-profile .profile-buttons,
-  .pet-profile .profile-buttons {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
-    margin-bottom: 3em; }
-  .user-profile .button,
-  .pet-profile .button {
-    background-color: #ffc300;
-    box-shadow: 4px 4px 0 #a0a6a6;
-    padding: 6px 12px;
-    width: 10em;
-    height: 3em;
-    border-radius: 0.3em;
-    margin: 15px; }
-    .user-profile .button p,
-    .pet-profile .button p {
-      color: #313333;
-      padding-top: 5px;
-      font-size: 1em;
-      text-align: center;
-      line-height: 1.5;
-      text-align: center; }
-    .user-profile .button p:hover,
-    .pet-profile .button p:hover {
-      color: #000;
-      cursor: pointer; }
-    .user-profile .button a,
-    .user-profile .button a:link,
-    .user-profile .button a:visited,
-    .user-profile .button a:hover,
-    .user-profile .button a:active,
-    .pet-profile .button a,
-    .pet-profile .button a:link,
-    .pet-profile .button a:visited,
-    .pet-profile .button a:hover,
-    .pet-profile .button a:active {
-      text-decoration: none;
-      border-bottom: none; }
-  .user-profile .post,
-  .pet-profile .post {
-    background-image: url("/output-onlinepngtools.png");
-    background-position: center;
-    height: 30em;
-    max-width: 45em;
-    background-repeat: no-repeat; }
-    .user-profile .post .title,
-    .pet-profile .post .title {
-      font-size: 1.5em;
-      text-align: center;
-      font-weight: 500;
-      padding-top: 1em;
-      color: #40413f; }
-    .user-profile .post .message,
-    .pet-profile .post .message {
-      max-width: 43em;
-      font-size: 1em;
-      font-weight: 300;
-      text-align: center;
-      line-height: 1em;
-      margin-bottom: 7em; }
-    .user-profile .post .caption,
-    .pet-profile .post .caption {
-      margin-left: 8em;
-      background-color: rgba(255, 204, 53, 0.4);
-      transform: skew(9deg, 0deg);
-      font-style: italic;
-      max-width: 60%;
-      text-align: center; }
-    .user-profile .post .button,
-    .pet-profile .post .button {
-      position: relative;
-      bottom: 1.2em;
-      left: 24em; }
-  .user-profile .review,
-  .pet-profile .review {
-    background-color: #fff;
-    box-shadow: 5px 5px 15px grey;
-    margin-bottom: 2em;
-    height: 10em; }
-    .user-profile .review .title,
-    .pet-profile .review .title {
-      font-size: 1em;
-      font-weight: 500;
-      font-style: italic;
-      line-height: 1em;
-      padding-top: 1em;
-      padding-left: 1em;
-      background-color: #66777770;
-      transform: skew(9deg, 0deg);
-      max-width: 30%; }
-    .user-profile .review .message,
-    .pet-profile .review .message {
-      padding-left: 1em;
-      font-weight: 300;
-      line-height: 0.8em;
-      font-size: 0.9em;
-      letter-spacing: 1px; }
+  .review .message {
+    padding-left: 1em;
+    font-weight: 300;
+    line-height: 0.8em;
+    font-size: 0.9em;
+    letter-spacing: 1px; }
 
 .score {
   font-size: 1em;
