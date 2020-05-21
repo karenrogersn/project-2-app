@@ -3,6 +3,7 @@
 const { Router } = require('express');
 const Post = require('./../models/post');
 const postRouter = new Router();
+const routeGuard = require('./../middleware/route-guard');
 
 //CONFIGURING NODEMAILER//
 const nodemailer = require('nodemailer');
@@ -29,13 +30,13 @@ postRouter.get('/list', (req, res, next) => {
 });
 
 //post creation view from the owner’s personal page.
-postRouter.get('/postcreate', (req, res, next) => {
+postRouter.get('/postcreate', routeGuard, (req, res, next) => {
   console.log('create a place');
   res.render('postcreate');
 });
 
 //post creation form submission. This has to be done from the owners profile
-postRouter.post('/postcreate', (req, res, next) => {
+postRouter.post('/postcreate', routeGuard, (req, res, next) => {
   const { title, message, startDate, endDate } = req.body;
   Post.create({
     title,
@@ -100,6 +101,34 @@ postRouter.post('/:postId/contactowner', (req, res, next) => {
       res.redirect('/');
     })
     .catch((error) => next(error));
+});
+
+postRouter.get('/:postId', (req, res, next) => {
+  const postId = req.params.postId;
+
+  Post.findById(postId)
+    .then((post) => {
+      res.render('singlepost', { post });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+//Delete a post, only if you're the person who did it
+postRouter.post('/:postId/delete', routeGuard, (req, res, next) => {
+  const postId = req.params.postId;
+
+  Post.findOneAndDelete({
+    _id: postId,
+    creator: req.user._id
+  })
+    .then(() => {
+      res.redirect('/list');
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 module.exports = postRouter;
