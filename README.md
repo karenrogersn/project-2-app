@@ -80,7 +80,7 @@ Models: 2 —> [owner/ petsitter]
 
 # Routers
 
-## Base Router
+## Base Router DONE
 
 GET - `/` —> homepage. Landing page with quick explanation of product and call to sign up and sign in.
 
@@ -116,7 +116,7 @@ POST - `/authentication/signup` —> handles sign up form submission. Signs up n
 authtenticatiounRoute.get('/signup') --> renders the form for sign in
 authtenticatiounRoute.post('/signup') --> process the post from the form
 
-### Sign Out route
+### Sign Out route DONE
 
 POST - `/signout` - Sign out the user calling req.logout(); ----------> Why? Ins't it req.session.destroy?
 
@@ -126,7 +126,7 @@ authtenticatiounRoute.post('/signout')
 
 app.use('/post', postRouter)
 
-### Post Listing
+### Post Listing DONE
 
 GET - `/list` - display all of the posts
 
@@ -140,7 +140,7 @@ POST - `/create` —> post creation form submission.
 GET - `/:postId/edit` —> displays post edit form.
 POST - `/:postId/edit` —> post edit form submission.
 
-### Post delete
+### Post delete DONE
 
 POST - `/:postId/delete` —> post delete form submission.
 
@@ -148,7 +148,7 @@ POST - `/:postId/delete` —> post delete form submission.
 
 app.use('/user', userRouter);
 
-### Display profile routes
+### Display profile routes DONE
 
 GET - `/:userId` - Displays the information of the user. Displaying user posts. Display reviews made about user. Should have a button that allows other user to create review.
 
@@ -166,7 +166,7 @@ POST - `/:userId/review/edit` - Handle review creation form submission.
 
 POST - `/:userId/review/delete` - Handle review creation form submission.
 
-### Profile editing
+### Profile editing DONE but we need to review the pet editing
 
 GET - `/edit` —> displays owner/petsitter profile edit form.
 POST - `/edit` —> owner/petsitter profile edit form submission.
