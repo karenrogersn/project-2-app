@@ -198,6 +198,13 @@ textarea {
   }
   .user-image {
     border-radius: 50%;
+    overflow: hidden;
+    height: 3em;
+    width: 3em;
+  }
+  .img {
+    object-fit: cover;
+    //object-position: 50% 50%;
   }
 }
 
