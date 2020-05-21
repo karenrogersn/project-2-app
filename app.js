@@ -15,9 +15,7 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const dotenv = require('dotenv');
 dotenv.config();
 const hbs = require('hbs');
-const cloudinary = require('cloudinary');
-const cloudinaryStorage = require('multer-storage-cloudinary');
-const multer = require('multer');
+
 
 //Importing the routes
 const indexRouter = require('./routes/index');

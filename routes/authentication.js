@@ -7,17 +7,44 @@ const User = require('./../models/user');
 
 const authenticationRouter = new Router();
 
+//Setting up cluodinary for uploading user's image
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+const multerStorageCloudinary = require('multer-storage-cloudinary');
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+const storage = multerStorageCloudinary({
+  cloudinary,
+  folder: 'project-2-2020'
+  //limits: { filesize: 10 }
+});
+
+const uploader = multer({ storage });
+
 authenticationRouter.get('/signup', (req, res, next) => {
   res.render('signup');
 });
 
-authenticationRouter.post('/signup', (req, res, next) => {
+//Setting up image-upload system in the signup
+authenticationRouter.post('/signup', uploader.single('image'), (req, res, next) => {
+  console.log(req.body);
+  console.log(req.file.url);
   const { name, email, type, location, password } = req.body;
+  const image = req.file.url;
+  const imageLink =
+    'https://res.cloudinary.com/daz8aouu1/image/fetch/w_300,h_300,c_fill,g_face,r_max,f_auto/upload/project-2-2020/';
+
   bcryptjs
     .hash(password, 10)
     .then((hash) => {
       return User.create({
         name,
+        image,
         email,
         type,
         location,

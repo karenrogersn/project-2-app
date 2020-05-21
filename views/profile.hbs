@@ -4,7 +4,10 @@
 <p class="profile-title">User Profile</p>
 <br>
 {{#with user}}
-<strong><p>Name: </strong>{{name}}</p>
+<strong><p>Name: </strong>{{name}}</p><br>
+<div class="user-image">{{image}}
+<img class="responsive-img" src= "" alt="user's image">
+</div><br>
 <strong><p>Type of user:</strong> {{type}}</p>
 <strong><p>Mail of contact:</strong><a href="#">{{email}}</a></p>
 <strong><p>Location (city):</strong> {{location}}</p>
