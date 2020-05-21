@@ -1,44 +1,58 @@
 
-
-<h1>User Profile</h1>
+<div class="profile-container">
+    <div class="user-profile">
+<p class="profile-title">User Profile</p>
+<br>
 {{#with user}}
-<p>Name: {{name}}</p>
-<p>Type of user: {{type}}</p>
-<p>Mail of contact: {{email}}</p>
-<p>Location (city): {{location}}</p>
-<a href="/user/edit">Edit your info</a>
+<strong><p>Name: </strong>{{name}}</p>
+<strong><p>Type of user:</strong> {{type}}</p>
+<strong><p>Mail of contact:</strong><a href="#">{{email}}</a></p>
+<strong><p>Location (city):</strong> {{location}}</p>
+<a class="edit-button" href="/user/edit">Edit your info</a>
+</div>
 
-
-<h3>Pet Details</h3>
+<div class="pet-profile">
+<p class="profile-title">Pet Details</p>
+<br>
 {{#with pet}}
 <ul>
-<li>Pet name: {{name}}</li>
-<li>Species: {{species}}</li>
-{{#if breed}}<li>Breed: {{breed}} {{/if}}</li>
+<li><strong>Pet name: </strong>{{name}}</li>
+<li><strong>Species:</strong> {{species}}</li>
+{{#if breed}}<li><strong>Breed: </strong>{{breed}} {{/if}}</li>
 </ul>
 {{/with}}
-<a href="/pet/{{_id}}/petedit">Edit your pet's info</a>
+<a class="edit-button" href="/pet/{{_id}}/petedit">Edit your pet's info</a>
 <p>{{comments}}</p>
 {{/with}}
+</div>
+</div>
 
-
+<div class="post">
+   
 {{#if user.pet}}
 
 {{#each posts}}
-<h1>{{title}}</h1>
-<p>{{message}}</p>
-<p>Are you interested in providing this service?</p>
-  <button>Contact the Pet Owner</button>
+<p class="title">{{title}}</p>
+<p class="message">{{message}}</p>
+<p class="caption">Are you interested in providing this service?</p>
+  <button class="button"><p>Send message</p></button>
+</div>
 {{/each}}
 
 {{#each reviews}}
 {{>reviewpartial}}
 {{/each}}
 
+
+
 <!--
     DISPLAY USER'S POST AND REVIEWS
 -->
-<button type="button" onclick="location.href='/post/postcreate'">Create a Post</button>
+<div class="profile-buttons">
+<a class="button" href='/post/postcreate'><p>Create a Post</p></a>
 {{/if}}
 
-<button type="button" onclick="location.href='/review/{{user._id}}/reviewcreate'">Create a Review for this user</button>
+<a class="button" href='/review/{{user._id}}/reviewcreate'><p>Review this user</p></a>
+
+</div>
+
