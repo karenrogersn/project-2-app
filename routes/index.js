@@ -5,7 +5,7 @@ const router = new Router();
 const routeGuard = require('./../middleware/route-guard');
 
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Welcome to PetLovers!' });
+  res.render('index', { title: 'Welcome to Care My Pet!' });
 });
 
 router.get('/private', routeGuard, (req, res, next) => {

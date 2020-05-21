@@ -1,6 +1,12 @@
+
+<div class="review">
+    <p class="title">{{ recipient.name }}'s reviews</p>
+    <p class="message">{{message}}</p>
+    
 <a href='/user/{{creator._id}}'>
-    <h5>{{ recipient.name }}'s reviews</h5>
-    <p>{{message}}</p>
-    <span>Reviewed by {{ creator.name }}</span>
-    <p>SCORE: {{ score }}</p>
-</a>
+<div>
+    <div class="score">
+    <p>Reviewed by {{ creator.name }}</p></a>
+    <p>SCORE: {{ score }}</p></div>
+</div>
+

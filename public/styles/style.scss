@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 $grey: hsla(0, 0, 75%, 0.5);
 
+//@import 'px-flexbox-design/_base.flexbox.scss';
 * {
   &,
   &:before,
@@ -11,8 +13,8 @@ $grey: hsla(0, 0, 75%, 0.5);
 
 body {
   max-width: 52em;
-  padding: 0 1em;
-  margin: 0 auto;
+  //padding: 0 0.5em;
+  //margin: 0 auto;
   min-height: 100%;
 
   font-family: 'Poppins', sans-serif;
@@ -76,6 +78,39 @@ button,
 textarea {
   min-height: 8em;
   resize: vertical;
+}
+
+//Homepage styling
+.home-background {
+  background-image: url('/markus-spiske--KSoCzdGRqE-unsplash.png');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .main-title {
+    font-weight: 300;
+    font-size: 3em;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+.homepage-button {
+  width: 10em;
+  height: 3.3em;
+  padding: 16px 20px;
+  background-color: #ef6327;
+  border-radius: 0.3em;
+  color: #fff;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: 300;
 }
 
 //Profile styling
@@ -191,6 +226,7 @@ textarea {
     color: #40413f;
   }
   .message {
+    max-width: 43em;
     font-size: 1em;
     font-weight: 300;
     text-align: center;
@@ -210,4 +246,43 @@ textarea {
     bottom: 1.2em;
     left: 24em;
   }
+}
+
+//Review styling
+
+.review {
+  background-color: #fff;
+  box-shadow: 5px 5px 15px grey;
+  margin-bottom: 2em;
+  height: 10em;
+
+  .title {
+    font-size: 1em;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1em;
+    padding-top: 1em;
+    padding-left: 1em;
+    background-color: #66777770;
+    transform: skew(9deg, 0deg);
+    max-width: 30%;
+  }
+  .message {
+    padding-left: 1em;
+    font-weight: 300;
+    line-height: 0.8em;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+  }
+}
+.score {
+  font-size: 1em;
+  display: flex;
+  width: 10em;
+  background-image: url('/bone2.png');
+  background-size: 3em;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-direction: row;
+  margin-right: 1em;
 }
