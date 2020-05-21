@@ -62,7 +62,6 @@ textarea {
   min-height: 8em;
   resize: vertical; }
 
-<<<<<<< HEAD
 .aboutus {
   padding: 70px 0; }
 
@@ -97,7 +96,7 @@ textarea {
   overflow: hidden; }
 
 .paw {
-  list-style-image: url("paw20x20.png"); }
+  list-style-image: url("/images/paw20x20.png"); }
 
 .form {
   margin-top: 25%; }
@@ -115,9 +114,9 @@ textarea {
   border-radius: 10px;
   width: 15em;
   align-self: center; }
-=======
+
 .home-background {
-  background-image: url("/markus-spiske--KSoCzdGRqE-unsplash.png");
+  background-image: url("/images/markus-spiske--KSoCzdGRqE-unsplash.png");
   background-size: cover;
   background-position: center;
   position: fixed;
@@ -132,17 +131,16 @@ textarea {
     font-size: 3em;
     color: #fff;
     font-family: 'Roboto', sans-serif; }
-
-.homepage-button {
-  width: 10em;
-  height: 3.3em;
-  padding: 16px 20px;
-  background-color: #ef6327;
-  border-radius: 0.3em;
-  color: #fff;
-  font-size: 1.1em;
-  text-align: center;
-  font-weight: 300; }
+  .home-background .homepage-button {
+    width: 10em;
+    height: 3.3em;
+    padding: 16px 20px;
+    background-color: #ef6327;
+    border-radius: 0.3em;
+    color: #fff;
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: 300; }
 
 .profile-container .profile-title {
   font-size: 1em;
@@ -228,7 +226,7 @@ textarea {
     border-bottom: none; }
 
 .post {
-  background-image: url("/output-onlinepngtools.png");
+  background-image: url("/images/output-onlinepngtools.png");
   background-position: center;
   height: 30em;
   max-width: 45em;
@@ -284,12 +282,11 @@ textarea {
   font-size: 1em;
   display: flex;
   width: 10em;
-  background-image: url("/bone2.png");
+  background-image: url("/images/bone2.png");
   background-size: 3em;
   background-repeat: no-repeat;
   background-position: center;
   flex-direction: row;
   margin-right: 1em; }
->>>>>>> ff07450d9d58c299f41ab8ccc22ac530ec2c81d1
 
 /*# sourceMappingURL=style.css.map */

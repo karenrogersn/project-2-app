@@ -124,7 +124,7 @@ textarea {
 }
 
 .paw {
-  list-style-image: url('paw20x20.png');
+  list-style-image: url('/images/paw20x20.png');
 }
 
 //####### Sign In + Sign Up #######
@@ -148,10 +148,10 @@ textarea {
   border-radius: 10px;
   width: 15em;
   align-self: center;
-  
+}
 //Homepage styling
 .home-background {
-  background-image: url('/markus-spiske--KSoCzdGRqE-unsplash.png');
+  background-image: url('/images/markus-spiske--KSoCzdGRqE-unsplash.png');
   background-size: cover;
   background-position: center;
   position: fixed;
@@ -168,20 +168,19 @@ textarea {
     color: #fff;
     font-family: 'Roboto', sans-serif;
   }
-}
 
-.homepage-button {
-  width: 10em;
-  height: 3.3em;
-  padding: 16px 20px;
-  background-color: #ef6327;
-  border-radius: 0.3em;
-  color: #fff;
-  font-size: 1.1em;
-  text-align: center;
-  font-weight: 300;
+  .homepage-button {
+    width: 10em;
+    height: 3.3em;
+    padding: 16px 20px;
+    background-color: #ef6327;
+    border-radius: 0.3em;
+    color: #fff;
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: 300;
+  }
 }
-
 //Profile styling
 
 .profile-container {
@@ -281,7 +280,7 @@ textarea {
 }
 
 .post {
-  background-image: url('/output-onlinepngtools.png');
+  background-image: url('/images/output-onlinepngtools.png');
   background-position: center;
   height: 30em;
   max-width: 45em;
@@ -348,7 +347,7 @@ textarea {
   font-size: 1em;
   display: flex;
   width: 10em;
-  background-image: url('/bone2.png');
+  background-image: url('/images/bone2.png');
   background-size: 3em;
   background-repeat: no-repeat;
   background-position: center;
