@@ -1,3 +1,5 @@
+{{#with post}}
+
 <div>
     <a href=''>{{ title }}</a>
     <p>{{ message }}</p>
@@ -13,10 +15,10 @@
      <button>Edit post</button>
 </form>
 
-<form action=''>
+<form method='POST' action='/post/{{_id}}/delete'>
      <button>Delete post</button>
 </form>
-
+{{/with}}
 
 </div>
 

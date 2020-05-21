@@ -108,6 +108,7 @@ postRouter.get('/:postId', (req, res, next) => {
 
   Post.findById(postId)
     .then((post) => {
+      console.log(post);
       res.render('singlepost', { post });
     })
     .catch((error) => {
@@ -124,7 +125,8 @@ postRouter.post('/:postId/delete', routeGuard, (req, res, next) => {
     creator: req.user._id
   })
     .then(() => {
-      res.redirect('/list');
+      console.log('redirecting');
+      res.redirect('/post/list');
     })
     .catch((error) => {
       next(error);
