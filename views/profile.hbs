@@ -32,7 +32,7 @@
 {{#if user.pet}}
 
 {{#each posts}}
-<p class="title">{{title}}</p>
+<a href='/post/{{_id}}' class="title">{{title}}</a>
 <p class="message">{{message}}</p>
 <p class="caption">Are you interested in providing this service?</p>
   <button class="button"><p>Send message</p></button>

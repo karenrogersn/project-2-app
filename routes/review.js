@@ -3,6 +3,7 @@
 const { Router } = require('express');
 const Review = require('./../models/review');
 const reviewRouter = new Router();
+const routeGuard = require('./../middleware/route-guard');
 
 //review creation view from the user’s ID
 reviewRouter.get('/:userId/reviewcreate', (req, res, next) => {
@@ -28,12 +29,12 @@ reviewRouter.post('/:userId/reviewcreate', (req, res, next) => {
     });
 });
 
-reviewRouter.get(`/:userId/review/edit`, (req, res, next) => {
+reviewRouter.get(`/:userId/review/edit`, routeGuard, (req, res, next) => {
   console.log('edit review');
   res.render('');
 });
 
-reviewRouter.post(`/:userId/review/edit`, (req, res, next) => {
+reviewRouter.post(`/:userId/review/edit`, routeGuard, (req, res, next) => {
   const userId = req.params.userId;
   Review.findByIdAndUpdate(userId, {})
     .then(() => {})
