@@ -1,55 +1,91 @@
-<div>
-    <ul>
-        <li>
-        <strong>How does it work?</strong>
-                To access to this service you should do the following steps:
-                    - Create an account 
-                    - Regist your pet(s)
-                    - Make a request for a petsitter
-        </li>
-        <li>
-        <strong>Can I choose the Petsitter that I want to hire?</strong>
-                Absolutely yes! But it will depend on them availability.
-        </li>
+<div >
+    <ul class ="paw">
+        <div class='FAQ'>
+            <li>
+                <button class='question'>How does it work?</button>
+                <div class='answer'> 
+                    <p>To access to this service you should do the following steps:
+                            <ul>- Create an account </ul>
+                            <ul>- Regist your pet(s)</ul>
+                            <ul>- Make a request for a petsitter</ul>
+                </div>
+            </p>
+            </li>
+        </div>
 
+        <div class='FAQ'>
         <li>
-        <strong>How does the payment process work?</strong>
-                Pre-payment of 50% of the service price via MB way or bank transfer.
+            <button class='question'>Can I choose the Petsitter that I want to hire?</button>
+            <p class='answer'>Absolutely yes! But it will depend on them availability.</p>
         </li>
+        </div>
 
+        <div class='FAQ'>
+        <li >
+            <button class='question'>How does the payment process work?</button>
+            <p class='answer'>Pre-payment of 50% of the service price via MB way or bank transfer.</p>
+        </li>
+        </div>
+
+        <div class='FAQ'>
         <li>
-        <strong>Are the petsitters qualified?</strong>
-                Yes! They will do their best to take care of your pet supplying all their needs.
+            <button class='question'>Are the petsitters qualified?</button>
+            <p class='answer'>Yes! They will do their best to take care of your pet supplying all their needs.</p>
         </li>
+        </div>
 
+        <div class='FAQ'>
         <li>
-            <strong>Can I meet the Petsitter before hiring?</strong>
-                Yes. We encourage you to meet each other previously and introduce the animals.
-                When you contact the petsitter you can schedule a visit or previous meeting.
+            <button class='question'>Can I meet the Petsitter before hiring?</button>
+            <p class='answer'>Yes. We encourage you to meet each other previously and introduce the animals. When you contact the petsitter you can schedule a visit or previous meeting.</p>
         </li>
+        </div>
 
+        <div class='FAQ'>
         <li>
-            <strong>I choosed the Petsitter but I didn't get the contact.</strong>
-                You need to make the pre-payment first.
+            <button class='question'>I choosed the Petsitter but I didn't get the contact.</button>
+            <p class='answer'>You need to make the pre-payment first.</p>
         </li>
+        </div>
 
+        <div class='FAQ'>
         <li>
-            <strong>Do you have a table price?</strong>
-                No. The prices are established by each Petsitter, so the prices can be variable according to each petsitter. 
+            <button class='question'>Do you have a table price?</button>
+            <p class='answer'>No. The prices are established by each Petsitter, so the prices can be variable according to each petsitter. </p>
         </li>
+        </div>
 
+        <div class='FAQ'>
         <li>
-            <strong>Will I get refunded if I cancel the service?</strong>
-                Only if you cancel the service with 7 or more days in advance.
-                In order to refund you, we emit a credit of 50% of the total amount pre-payed and you can use it in the next service.
+            <button class='question'>Will I get refunded if I cancel the service?</button>
+            <p class='answer'>Only if you cancel the service with 7 or more days in advance. In order to refund you, we emit a credit of 50% of the total amount pre-payed and you can use it in the next service.</p>
         </li>
+        </div>
 
+        <div class='FAQ'>
         <li>
-            <strong>Does the prices include the feeding?</strong>
-                No. The food and all the materials needed to the maintenance of the animals should be provided by the owner.
+            <button class='question'>Does the prices include the feeding?</button>
+            <p class='answer'>No. The food and all the materials needed to the maintenance of the animals should be provided by the owner.</p>
         </li>
-
+        </div>
 
     </ul>
-
 </div>
+
+
+<script>
+    let collapsible = document.getElementsByClassName("question");
+    let i;
+
+    for (i = 0; i < collapsible.length; i++) {
+    collapsible[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        let answer = this.nextElementSibling;
+        if (answer.style.display === "block") {
+        answer.style.display = "none";
+        } else {
+        answer.style.display = "block";
+        }
+    });
+    }
+</script>

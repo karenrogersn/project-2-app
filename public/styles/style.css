@@ -62,4 +62,57 @@ textarea {
   min-height: 8em;
   resize: vertical; }
 
+.aboutus {
+  padding: 70px 0; }
+
+.title {
+  text-align: center; }
+
+.content {
+  margin-top: 3em; }
+
+.content1 {
+  margin-top: 3em; }
+
+.FAQ {
+  margin-bottom: 2em; }
+
+.question {
+  text-align: justify;
+  font-weight: bold;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px; }
+
+.answer {
+  margin-left: 1em;
+  padding: 0 18px;
+  display: none;
+  overflow: hidden; }
+
+.paw {
+  list-style-image: url("paw20x20.png"); }
+
+.form {
+  margin-top: 25%; }
+
+.label {
+  align-self: center;
+  margin-top: 1em; }
+
+.input {
+  width: 30em;
+  align-self: center; }
+
+.sign {
+  background-color: #eee;
+  border-radius: 10px;
+  width: 15em;
+  align-self: center; }
+
 /*# sourceMappingURL=style.css.map */
