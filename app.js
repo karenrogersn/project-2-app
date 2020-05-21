@@ -16,7 +16,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 const hbs = require('hbs');
 
-
 //Importing the routes
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
@@ -68,6 +67,37 @@ app.use(
 );
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
+
+hbs.registerHelper('date', (value) => {
+  //we will get the date in the front end and we will call it value
+  const dt = value;
+  //we will make some javascript on to it to turn it into a nice date
+  //we will return that nicely formatted date
+
+  return `${dt
+    .getDate()
+    .toString()
+    .padStart(2, '0')}/${(dt.getMonth() + 1).toString().padStart(2, '0')}/${dt
+    .getFullYear()
+    .toString()
+    .padStart(4, '0')}`;
+  /*
+    return `${dt
+      .getDate()
+      .toString()
+      .padStart(2, '0')}/${(dt.getMonth() + 1).toString().padStart(2, '0')}/${dt
+      .getFullYear()
+      .toString()
+      .padStart(4, '0')}
+      ${dt
+      .getHours()
+      .toString()
+      .padStart(2, '0')}:${dt
+      .getMinutes()
+      .toString()
+      .padStart(2, '0')}`;
+      */
+});
 
 //Setting up image visualization
 app.use(express.static(process.env.PWD + '/images'));

@@ -1,37 +1,41 @@
 
 <div class="profile-container">
     <div class="user-profile">
-<p class="profile-title">User Profile</p>
-<br>
-{{#with user}}
-<div class="user-name-display">
-<span class="user-image">
-<img class="img" src="{{image}}" alt="user's image">
-</span>
-<strong><p>Name: </strong>{{name}}</p><br>
-</div>
-<strong><p>Type of user:</strong> {{type}}</p>
-<strong><p>Mail of contact:</strong><a href="#">{{email}}</a></p>
-<strong><p>Location (city):</strong> {{location}}</p>
-<a class="edit-button" href="/user/edit">Edit your info</a>
-</div>
+    <p class="profile-title">User Profile</p>
+    <br>
+    {{#with user}}
+    <div class="user-name-display">
+      <span class="user-image">
+        <img class="img" src="{{image}}" alt="user's image">
+      </span>
+      <strong><p>Name: </strong>{{name}}</p><br>
+    </div>
+    <strong><p>Type of user:</strong> {{type}}</p>
+    <strong><p>Mail of contact:</strong><a href="#">{{email}}</a></p>
+    <strong><p>Location (city):</strong> {{location}}</p>
+    <a class="edit-button" href="/user/edit">Edit your info</a>
+  </div>
+    {{#if ../userIsOwner}}
+    <div class="pet-profile">
+    <p class="profile-title">Pet Details</p>
+    <br>
 
-<div class="pet-profile">
-<p class="profile-title">Pet Details</p>
-<br>
-{{#with pet}}
-<ul>
-<li><strong>Pet name: </strong>{{name}}</li>
-<li><strong>Species:</strong> {{species}}</li>
-{{#if breed}}<li><strong>Breed: </strong>{{breed}} {{/if}}</li>
-</ul>
-{{/with}}
-<a class="edit-button pet" href="/pet/{{_id}}/petedit">Edit your pet's info</a>
-<p>{{comments}}</p>
-{{/with}}
-</div>
-</div>
+    {{#with pet}}
+    <ul>
+    <li><strong>Pet name: </strong>{{name}}</li>
+    <li><strong>Species:</strong> {{species}}</li>
+    {{#if breed}}<li><strong>Breed: </strong>{{breed}} {{/if}}</li>
+    </ul>
+    {{/with}}
+    <a class="edit-button pet" href="/pet/{{_id}}/petedit">Edit your pet's info</a>
+    <p>{{comments}}</p>
+    {{/if}}
+    {{/with}}
+    </div>
 
+
+</div>
+{{#if userIsOwner}}
 <div class="post">
    
 {{#if user.pet}}
@@ -44,7 +48,7 @@
   <button class="button"><p>Send message</p></button>
 </div>
 {{/each}}
-
+{{/if}}
 {{#each reviews}}
 {{>reviewpartial}}
 {{/each}}
@@ -58,7 +62,7 @@
 <a class="button" href='/post/postcreate'><p>Create a Post</p></a>
 {{/if}}
 
-<a class="button" href='/review/{{user._id}}/reviewcreate'><p>Review this user</p></a>
+<a class="button" href='/review/{{user._id}}/reviewcreate'>Review this user</a>
 
 </div>
 

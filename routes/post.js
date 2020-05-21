@@ -23,6 +23,7 @@ postRouter.get('/list', (req, res, next) => {
   Post.find()
     .populate('creator')
     .then((posts) => {
+      console.log(posts);
       res.render('list', { posts });
     })
     .catch((error) => {
@@ -39,6 +40,7 @@ postRouter.get('/postcreate', routeGuard, (req, res, next) => {
 //post creation form submission. This has to be done from the owners profile
 postRouter.post('/postcreate', routeGuard, (req, res, next) => {
   const { title, message, startDate, endDate } = req.body;
+  console.log(endDate);
   Post.create({
     title,
     message,
@@ -109,6 +111,7 @@ postRouter.get('/:postId', (req, res, next) => {
 
   Post.findById(postId)
     .then((post) => {
+      /*
       let day = post.createdDate.getDate();
       let month = post.createdDate.getMonth() + 1;
       let year = post.createdDate.getFullYear();
@@ -117,8 +120,9 @@ postRouter.get('/:postId', (req, res, next) => {
       let minutes = ('00' + post.createdDate.getMinutes()).slice(-2);
 
       let formatedDate = `${year}-${month}-${day} ${hour}:${minutes}`;
+      */
       console.log(post);
-      res.render('singlepost', { post }, { formatedDate });
+      res.render('singlepost', { post });
     })
     .catch((error) => {
       next(error);
