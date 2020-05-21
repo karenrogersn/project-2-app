@@ -36,8 +36,6 @@ authenticationRouter.post('/signup', uploader.single('image'), (req, res, next) 
   console.log(req.file.url);
   const { name, email, type, location, password } = req.body;
   const image = req.file.url;
-  const imageLink =
-    'https://res.cloudinary.com/daz8aouu1/image/fetch/w_300,h_300,c_fill,g_face,r_max,f_auto/upload/project-2-2020/';
 
   bcryptjs
     .hash(password, 10)

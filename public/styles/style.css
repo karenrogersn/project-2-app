@@ -154,7 +154,13 @@ textarea {
   max-width: 30%; }
 
 .profile-container .user-image {
-  border-radius: 50%; }
+  border-radius: 50%;
+  overflow: hidden;
+  height: 3em;
+  width: 3em; }
+
+.profile-container .img {
+  object-fit: cover; }
 
 .user-profile,
 .pet-profile {
