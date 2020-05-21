@@ -1,14 +1,15 @@
 <div>
     {{#each posts}}
-    <a href='/{{_id}}'>{{ title }}</a>
-    <p>{{ message }}</p>
-    <p>{{ startDate }}</p>
-    <p>{{ endDate }}</p>
+        <a href='/user/{{creator._id}}'>{{ creator.name }}</a>
+        <h4>{{title}}</h4>
+        <p>{{ message }}</p>
+        <p>{{ startDate }}</p>
+        <p>{{ endDate }}</p>
 
-    <p>Are you interested in providing this service?</p>
-    <form action="/post/{{_id}}/contactowner" method="POST">
-        <button>Contact the Pet Owner</button>
-    </form>
+        <p>Are you interested in providing this service?</p>
+        <form action="/post/{{_id}}/contactowner" method="POST">
+            <button>Contact the Pet Owner</button>
+        </form>
 
     {{/each}}
 

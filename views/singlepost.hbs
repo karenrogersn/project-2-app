@@ -1,7 +1,7 @@
 {{#with post}}
 
 <div>
-    <a href=''>{{ title }}</a>
+    <p>{{ title }}</p>
     <p>{{ message }}</p>
     <p>{{ startDate }}</p>
     <p>{{ endDate }}</p>
@@ -11,11 +11,11 @@
         <button>Contact the Pet Owner</button>
     </form>
 
-<form action=''>
+<form action='/post/{{_id}}/edit' method='POST'>
      <button>Edit post</button>
 </form>
 
-<form method='POST' action='/post/{{_id}}/delete'>
+<form action='/post/{{_id}}/delete' method='POST'>
      <button>Delete post</button>
 </form>
 {{/with}}

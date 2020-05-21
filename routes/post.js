@@ -21,6 +21,7 @@ const transporter = nodemailer.createTransport({
 //display all of the posts
 postRouter.get('/list', (req, res, next) => {
   Post.find()
+    .populate('creator')
     .then((posts) => {
       res.render('list', { posts });
     })
@@ -108,8 +109,57 @@ postRouter.get('/:postId', (req, res, next) => {
 
   Post.findById(postId)
     .then((post) => {
+      let day = post.createdDate.getDate();
+      let month = post.createdDate.getMonth() + 1;
+      let year = post.createdDate.getFullYear();
+
+      let hour = ('00' + post.createdDate.getHours()).slice(-2);
+      let minutes = ('00' + post.createdDate.getMinutes()).slice(-2);
+
+      let formatedDate = `${year}-${month}-${day} ${hour}:${minutes}`;
       console.log(post);
+      res.render('singlepost', { post }, { formatedDate });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+// Edit a post, only if you're the person who did it
+postRouter.get(`/:postId/edit`, routeGuard, (req, res, next) => {
+  const postId = req.params.postId;
+
+  Post.findOne({
+    _id: postId,
+    creator: req.user._id
+  })
+    .then((post) => {
       res.render('singlepost', { post });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+postRouter.post(`/:postId/edit`, routeGuard, (req, res, next) => {
+  const postId = req.params.postId;
+
+  const title = req.body.title;
+  const message = req.body.message;
+
+  Post.findOneAndUpdate(
+    {
+      _id: postId,
+      creator: req.user._id
+    },
+    {
+      title,
+      message
+    }
+  )
+    .then((post) => {
+      //res.redirect('/${postId}', { post });
+      console.log('what are you donig man?');
     })
     .catch((error) => {
       next(error);
