@@ -152,7 +152,7 @@ textarea {
 .question {
   text-align: justify;
   font-weight: bold;
-  background-color: #eee;
+  background-color: rgba(232, 217, 217, 0.3);
   color: #444;
   cursor: pointer;
   padding: 10px;

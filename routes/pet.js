@@ -33,6 +33,10 @@ petRouter.post('/create', (req, res, next) => {
 // get and post using the user id /:userId/petedit
 
 //Pet details EDIT form submission. Should have a routGuard
+
+petRouter.get('/:userId/petedit', (req, res, next) => {
+  res.render('petedit');
+});
 petRouter.post('/:userId/petedit', (req, res, next) => {
   const userId = req.params.userId;
   const {
