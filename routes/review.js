@@ -29,7 +29,7 @@ reviewRouter.post('/:userId/reviewcreate', (req, res, next) => {
     });
 });
 
-reviewRouter.get(`/:userId/review/edit`, routeGuard, (req, res, next) => {
+/*reviewRouter.get(`/:userId/review/edit`, routeGuard, (req, res, next) => {
   console.log('edit review');
   res.render('');
 });
@@ -41,6 +41,6 @@ reviewRouter.post(`/:userId/review/edit`, routeGuard, (req, res, next) => {
     .catch((error) => {
       next(error);
     });
-});
+}); */
 
 module.exports = reviewRouter;
