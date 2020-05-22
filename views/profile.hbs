@@ -1,4 +1,4 @@
-
+<div class="center">
 <div class="profile-container">
     <div class="user-profile">
 <p class="profile-title">User Profile</p>
@@ -55,10 +55,12 @@
     DISPLAY USER'S POST AND REVIEWS
 -->
 <div class="profile-buttons">
-<a class="button" href='/post/postcreate'><p>Create a Post</p></a>
+
+<a href='/post/postcreate'><button class="button click-on">Create a Post</button></a>
 {{/if}}
 
-<a class="button" href='/review/{{user._id}}/reviewcreate'><p>Review this user</p></a>
+<a href='/review/{{user._id}}/reviewcreate'><button class="button click-on">Review this user</button></a>
 
 </div>
 
+</div>

@@ -12,13 +12,16 @@ $grey: hsla(0, 0, 75%, 0.5);
 }
 
 body {
-  max-width: 52em;
-  padding: 0 0.5em;
+  //max-width: 52em;
   margin: 0 auto;
   min-height: 100%;
-
   font-family: 'Poppins', sans-serif;
   line-height: 2;
+}
+
+.center {
+  width: 80vw;
+  margin: 0 auto;
 }
 
 //Navbar styling
@@ -26,18 +29,23 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-  color: #444;
+  color: #000;
 }
 
 nav {
+  padding-top: 1em;
+  padding-right: 2em;
   display: flex;
   justify-content: flex-end;
-
+  font-family: 'Roboto', sans-serif;
   a:hover {
     text-decoration: none;
-    color: #000;
+    color: #444;
   }
 
+  .sign-out-form {
+    display: inline-block;
+  }
   a,
   button {
     padding: 1em 0.8em;
@@ -63,7 +71,6 @@ img {
   width: 100%;
   max-width: 100%;
 }
-
 form {
   display: flex;
   flex-direction: column;
@@ -71,7 +78,6 @@ form {
 
 input,
 textarea,
-button,
 .btn {
   padding: 1em;
   border: 1px solid $grey;
@@ -94,7 +100,7 @@ textarea {
   background-position: center;
   background-repeat: no-repeat;
   position: fixed;
-  height: 100%;
+  height: 80%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -121,35 +127,72 @@ textarea {
   font-weight: 300;
 }
 
-.home-button {
+.logo {
   background-image: url('/images/logo.png');
+  display: block; //this allows an anchor tag become an hyperlink
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  top: 3em;
+  right: 30em;
+  bottom: 0.5em;
   height: 3em;
   width: 3em;
 }
 
 //####### About us page #######
+.aboutus {
+  padding: 0 8em;
 
-.title {
-  text-align: center;
-}
+  .title {
+    text-align: center;
+    margin-top: 2em;
+    background-color: rgba(232, 217, 217, 0.3);
+    transform: skew(9deg, 0deg);
+    font-style: italic;
+  }
 
-.content {
-  margin-top: 3em;
-}
+  .about-image {
+    background-image: url('/images/user.png');
 
-.content1 {
-  margin-top: 3em;
+    width: 3em;
+    height: 3em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 22em;
+    margin-top: 2em;
+  }
+
+  .content {
+    margin-top: 3em;
+    text-align: center;
+  }
+
+  .bullet-points {
+    text-align: left;
+    margin-top: 3em;
+    padding: 0 2em;
+  }
+
+  .content1 {
+    margin-top: 3em;
+    font-weight: 200;
+  }
+  p {
+    line-height: normal;
+    text-align: center;
+  }
 }
 
 //####### FAQ page #######
 
-.FAQ {
-  margin-bottom: 2em;
+.faq-container {
+  margin-top: 2em;
+
+  .FAQ {
+    margin-bottom: 2em;
+  }
 }
 
 .question {
@@ -178,25 +221,67 @@ textarea {
 
 //####### Sign In + Sign Up #######
 
+.background {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 .form {
-  margin-top: 25%;
+  margin-top: 1em;
 }
 
 .label {
-  align-self: center;
-  margin-top: 1em;
+  align-self: left;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+  font-family: 'Roboto', sans-serif;
 }
 
 .input {
   width: 30em;
   align-self: center;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background: transparent;
+  border-bottom: 1px solid #1a41413f;
+  margin-top: 0;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  top: -4px;
+}
+
+input[type='file'] {
+  display: none;
 }
 
 .sign {
-  background-color: #eee;
-  border-radius: 10px;
-  width: 15em;
+  background-color: #ef6327;
+  font-weight: 300;
+  color: #fff;
+  border-radius: 0.3em;
+  width: 10em;
+  height: 3.3em;
+  margin-top: 1em;
   align-self: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.sign:hover {
+  background-color: #41413f;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.space {
+  margin-bottom: 4em;
+}
+
+.greeting {
+  max-width: 20em;
+  text-align: center;
+  margin-top: 2em;
+  font-size: 1.5em;
 }
 
 //Profile styling
@@ -225,12 +310,13 @@ textarea {
   width: 3em;
   position: relative;
   left: 1em;
-  bottom: 0.7em;
+  bottom: 1em;
   margin-right: 0.5em;
 }
 .img {
   object-fit: cover;
-  //object-position: 50% 50%;
+  height: 3em;
+  width: 3em;
 }
 .user-name-display {
   display: flex;
@@ -244,7 +330,7 @@ textarea {
     font-weight: 500;
     font-style: italic;
     line-height: 1em;
-    padding-top: 1em;
+    //padding-top: 1em;
     margin-bottom: 0;
     background-color: #66777770;
     transform: skew(9deg, 0deg);
@@ -282,9 +368,9 @@ textarea {
   background-color: #525351;
   box-shadow: 4px 4px 0 #a0a6a6;
   padding: 6px 12px;
-  width: 10em;
-  height: 3em;
-  border-radius: 0.3em;
+  width: 3em;
+  height: 1em;
+  //border-radius: 0.3em;
   margin-left: 1em;
   position: relative;
   top: 0.2em;
@@ -301,12 +387,39 @@ textarea {
 
 .profile-buttons {
   display: flex;
-  justify-content: space-evenly;
-  align-items: baseline;
+  justify-content: center;
+  align-items: flex-end;
   margin-bottom: 3em;
 }
-
 .button {
+  //display: inline-block;
+  width: 140px;
+  height: 40px;
+  margin-left: 16px;
+  margin-right: 20px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 40px;
+  padding: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  border-image: initial;
+  border-radius: 2px;
+  background: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+
+  :hover {
+    transition: all 0.2s ease-in-out 0s;
+    // text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+  }
+  /*
   background-color: #ffc300;
   box-shadow: 4px 4px 0 #a0a6a6;
   padding: 6px 12px;
@@ -314,19 +427,20 @@ textarea {
   height: 3em;
   border-radius: 0.3em;
   margin: 15px;
+  */
 
-  p {
+  a {
+    /*
     color: #313333;
     padding-top: 5px;
     font-size: 1em;
     text-align: center;
     line-height: 1.5;
-    text-align: center;
-  }
-
-  p:hover {
-    color: #000;
-    cursor: pointer;
+    text-align: center;*/
+    a:hover {
+      color: #000;
+      cursor: pointer;
+    }
   }
 
   a,
@@ -343,7 +457,7 @@ textarea {
   background-image: url('/images/bubble.png');
   background-position: center;
   height: 30em;
-  width: 48em;
+  //width: 48em;
   background-size: 45em 28em;
   //overflow: hidden;
   background-repeat: no-repeat;
@@ -379,15 +493,60 @@ textarea {
     max-width: 50%;
     text-align: center;
     position: relative;
-    bottom: 1em;
+    bottom: 2em;
   }
   .button {
     position: relative;
-    bottom: 2.7em;
+    bottom: 3em;
     left: 10em;
   }
 }
 
+.comment {
+  text-align: center;
+  font-weight: 300;
+}
+
+//Post list view
+.container {
+  margin-bottom: 5em;
+
+  .post-content {
+    padding: 1em 10em;
+
+    h4 {
+      margin-top: 1em;
+    }
+
+    p {
+      line-height: 1.5em;
+      text-align: justify;
+      font-weight: 200;
+    }
+    button {
+      color: #fff;
+      font-size: 1em;
+      font-weight: 300;
+      background-color: #ef6327;
+      //box-shadow: 4px 4px 0 #a0a6a6;
+      padding: 6px 10px;
+      width: 10em;
+      height: 2.5em;
+      border-radius: 0.3em;
+      margin-bottom: 3em;
+      position: relative;
+      font-family: 'Roboto', sans-serif;
+    }
+    button:active {
+      top: -1px;
+    }
+
+    .align {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
 //Review styling
 
 .review {

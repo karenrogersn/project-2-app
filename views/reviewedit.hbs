@@ -1,4 +1,5 @@
-<form action="/userId/review/edit" method="POST">
+<div class="center background">
+<form class='form' action="/userId/review/edit" method="POST">
 
   <label for="review-title">Review Title</label>
   <input type="text" id="review-title" name="title" value="{{review.title}} "minlength="5" maxlength="140" placeholder="Give this post s title" />
@@ -6,9 +7,10 @@
   <label for="review-message">Message</label>
   <textarea id="review-message" name="message" value="{{review.message}} "placeholder="Describe how was your experience with this user" maxlength="2000"></textarea>
   
-  <label for="score">Give this user a score:</label>
-  <input type="number" id="score" name="score" {{review.score}} min="1" max="5"/>
+  <label class='label' for="score">Give this user a score:</label>
+  <input class='input' type="number" id="score" name="score" {{review.score}} min="1" max="5"/>
 
-  <button>Publish</button>
+  <button class='sign'>Publish</button>
 
 </form>
+</div>
