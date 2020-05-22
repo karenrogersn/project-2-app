@@ -72,7 +72,7 @@ authenticationRouter.post('/signin', (req, res, next) => {
   User.findOne({ email })
     .then((document) => {
       if (!document) {
-        return Promise.reject(new Error("There's no user with that email."));
+        return Promise.reject(new Error("Oops! there's no user with that email."));
       } else {
         user = document;
         return bcryptjs.compare(password, user.passwordHash);

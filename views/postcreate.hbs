@@ -1,22 +1,27 @@
+<div class="center space background">
 <form action="" method="POST">
 
-  <label for="post-title">Post Title</label>
-  <input type="text" id="post-title" name="title" required minlength="5" maxlength="140" placeholder="Give this post s title" />
+  <label class='label' for="post-title">Post Title</label>
+  <input class='input' type="text" id="post-title" name="title" required minlength="5" maxlength="140" placeholder="Give this post s title" />
   
-  <p>Describe the petsitting service you need to hire</p>
-  <label for="post-message">Message</label>
-  <textarea id="post-message" name="message" required placeholder="Explain what you're looking for: petwalking, feeding, play, overnight (at the host of sitter'at the host of sitter')" maxlength="2500"></textarea>
+  <label class='label' for="post-message">Message</label>
+  <textarea class='input' id="post-message" name="message" required placeholder="Explain what you're looking for: petwalking, feeding, play, overnight (at the host of sitter'at the host of sitter')" maxlength="2500"></textarea>
   
-  <p>Tell us for when you need the service to be provided:</p>
-  <label for="start">Start date:</label>
-  <input type="date" id="startDate" name="startDate" required value="2020-05-20" min="2020-05-22" max="2020-12-31"/>
+  <p class='label'>Tell us for when you need the service to be provided:</p>
+  <label class='label' for="start">Start date:</label>
+  <input class='input' type="date" id="startDate" name="startDate" required value="2020-05-20" min="2020-05-22" max="2020-12-31"/>
 
+<<<<<<< HEAD
+  <label class='label' for="end">End date:</label>
+  <input class='input' type="date" id="endDate" name="endtDate" required value="2020-05-20" min="2020-05-22" max="2020-12-31"/>
+=======
   <label for="end">End date:</label>
   <input type="date" id="endDate" name="endDate" required value="2020-05-20" min="2020-05-22" max="2020-12-31"/>
+>>>>>>> 6c3b8eb0f2df89470e62b18a8425e5ab3ab095b6
 
-  <button>Publish</button>
+  <button class='sign'>Publish</button>
 
-  <p>Are you interested in providing this service?</p>
-  <button>Contact Pet Owner</button>
-
+  <p class='label comment'><strong>Are you interested in providing this service?</strong></p>
+  <button class='sign'>Contact Pet Owner</button>
 </form>
+</div>

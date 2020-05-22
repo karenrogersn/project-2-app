@@ -4,24 +4,31 @@
   box-sizing: border-box; }
 
 body {
-  max-width: 52em;
-  padding: 0 0.5em;
   margin: 0 auto;
   min-height: 100%;
   font-family: 'Poppins', sans-serif;
   line-height: 2; }
 
+.center {
+  width: 80vw;
+  margin: 0 auto; }
+
 a {
   color: inherit;
   text-decoration: none;
-  color: #444; }
+  color: #000; }
 
 nav {
+  padding-top: 1em;
+  padding-right: 2em;
   display: flex;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  font-family: 'Roboto', sans-serif; }
   nav a:hover {
     text-decoration: none;
-    color: #000; }
+    color: #444; }
+  nav .sign-out-form {
+    display: inline-block; }
   nav a,
   nav button {
     padding: 1em 0.8em;
@@ -52,7 +59,6 @@ form {
 
 input,
 textarea,
-button,
 .btn {
   padding: 1em;
   border: 1px solid rgba(191, 191, 191, 0.5);
@@ -72,7 +78,7 @@ textarea {
   background-position: center;
   background-repeat: no-repeat;
   position: fixed;
-  height: 100%;
+  height: 80%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -95,27 +101,53 @@ textarea {
   text-align: center;
   font-weight: 300; }
 
-.home-button {
+.logo {
   background-image: url("/images/logo.png");
+  display: block;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  top: 3em;
+  right: 30em;
+  bottom: 0.5em;
   height: 3em;
   width: 3em; }
 
-.title {
-  text-align: center; }
+.aboutus {
+  padding: 0 8em; }
+  .aboutus .title {
+    text-align: center;
+    margin-top: 2em;
+    background-color: rgba(232, 217, 217, 0.3);
+    transform: skew(9deg, 0deg);
+    font-style: italic; }
+  .aboutus .about-image {
+    background-image: url("/images/user.png");
+    width: 3em;
+    height: 3em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 22em;
+    margin-top: 2em; }
+  .aboutus .content {
+    margin-top: 3em;
+    text-align: center; }
+  .aboutus .bullet-points {
+    text-align: left;
+    margin-top: 3em;
+    padding: 0 2em; }
+  .aboutus .content1 {
+    margin-top: 3em;
+    font-weight: 200; }
+  .aboutus p {
+    line-height: normal;
+    text-align: center; }
 
-.content {
-  margin-top: 3em; }
-
-.content1 {
-  margin-top: 3em; }
-
-.FAQ {
-  margin-bottom: 2em; }
+.faq-container {
+  margin-top: 2em; }
+  .faq-container .FAQ {
+    margin-bottom: 2em; }
 
 .question {
   text-align: justify;
@@ -138,22 +170,60 @@ textarea {
 .paw {
   list-style-image: url("/images/paw20x20.png"); }
 
+.background {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+
 .form {
-  margin-top: 25%; }
+  margin-top: 1em; }
 
 .label {
-  align-self: center;
-  margin-top: 1em; }
+  align-self: left;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+  font-family: 'Roboto', sans-serif; }
 
 .input {
   width: 30em;
-  align-self: center; }
+  align-self: center;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background: transparent;
+  border-bottom: 1px solid #1a41413f;
+  margin-top: 0;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  top: -4px; }
+
+input[type='file'] {
+  display: none; }
 
 .sign {
-  background-color: #eee;
-  border-radius: 10px;
-  width: 15em;
-  align-self: center; }
+  background-color: #ef6327;
+  font-weight: 300;
+  color: #fff;
+  border-radius: 0.3em;
+  width: 10em;
+  height: 3.3em;
+  margin-top: 1em;
+  align-self: center;
+  font-family: 'Roboto', sans-serif; }
+
+.sign:hover {
+  background-color: #41413f;
+  transition: all 0.2s ease-in-out 0s; }
+
+.space {
+  margin-bottom: 4em; }
+
+.greeting {
+  max-width: 20em;
+  text-align: center;
+  margin-top: 2em;
+  font-size: 1.5em; }
 
 .user-profile,
 .pet-profile {
@@ -180,11 +250,13 @@ textarea {
   width: 3em;
   position: relative;
   left: 1em;
-  bottom: 0.7em;
+  bottom: 1em;
   margin-right: 0.5em; }
 
 .img {
-  object-fit: cover; }
+  object-fit: cover;
+  height: 3em;
+  width: 3em; }
 
 .user-name-display {
   display: flex;
@@ -196,7 +268,6 @@ textarea {
   font-weight: 500;
   font-style: italic;
   line-height: 1em;
-  padding-top: 1em;
   margin-bottom: 0;
   background-color: #66777770;
   transform: skew(9deg, 0deg);
@@ -232,9 +303,8 @@ textarea {
   background-color: #525351;
   box-shadow: 4px 4px 0 #a0a6a6;
   padding: 6px 12px;
-  width: 10em;
-  height: 3em;
-  border-radius: 0.3em;
+  width: 3em;
+  height: 1em;
   margin-left: 1em;
   position: relative;
   top: 0.2em; }
@@ -248,28 +318,54 @@ textarea {
 
 .profile-buttons {
   display: flex;
-  justify-content: space-evenly;
-  align-items: baseline;
+  justify-content: center;
+  align-items: flex-end;
   margin-bottom: 3em; }
 
 .button {
+  width: 140px;
+  height: 40px;
+  margin-left: 16px;
+  margin-right: 20px;
+  color: white;
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 40px;
+  padding: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-image: initial;
+  border-radius: 2px;
+  background: black;
+  border: 1px solid black;
+  /*
   background-color: #ffc300;
   box-shadow: 4px 4px 0 #a0a6a6;
   padding: 6px 12px;
   width: 10em;
   height: 3em;
   border-radius: 0.3em;
-  margin: 15px; }
-  .button p {
+  margin: 15px;
+  */ }
+  .button :hover {
+    transition: all 0.2s ease-in-out 0s;
+    background-color: white;
+    color: black;
+    border-color: black;
+    border-bottom: 1px solid black; }
+  .button a {
+    /*
     color: #313333;
     padding-top: 5px;
     font-size: 1em;
     text-align: center;
     line-height: 1.5;
-    text-align: center; }
-  .button p:hover {
-    color: #000;
-    cursor: pointer; }
+    text-align: center;*/ }
+    .button a a:hover {
+      color: #000;
+      cursor: pointer; }
   .button a,
   .button a:link,
   .button a:visited,
@@ -282,7 +378,6 @@ textarea {
   background-image: url("/images/bubble.png");
   background-position: center;
   height: 30em;
-  width: 48em;
   background-size: 45em 28em;
   background-repeat: no-repeat;
   display: flex;
@@ -314,11 +409,43 @@ textarea {
     max-width: 50%;
     text-align: center;
     position: relative;
-    bottom: 1em; }
+    bottom: 2em; }
   .post .button {
     position: relative;
-    bottom: 2.7em;
+    bottom: 3em;
     left: 10em; }
+
+.comment {
+  text-align: center;
+  font-weight: 300; }
+
+.container {
+  margin-bottom: 5em; }
+  .container .post-content {
+    padding: 1em 10em; }
+    .container .post-content h4 {
+      margin-top: 1em; }
+    .container .post-content p {
+      line-height: 1.5em;
+      text-align: justify;
+      font-weight: 200; }
+    .container .post-content button {
+      color: #fff;
+      font-size: 1em;
+      font-weight: 300;
+      background-color: #ef6327;
+      padding: 6px 10px;
+      width: 10em;
+      height: 2.5em;
+      border-radius: 0.3em;
+      margin-bottom: 3em;
+      position: relative;
+      font-family: 'Roboto', sans-serif; }
+    .container .post-content button:active {
+      top: -1px; }
+    .container .post-content .align {
+      display: flex;
+      justify-content: center; }
 
 .review {
   background-color: #fff;

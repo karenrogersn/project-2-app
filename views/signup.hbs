@@ -1,19 +1,21 @@
-<form action="/authentication/signup" method="POST" enctype="multipart/form-data">
+<div class="center space background">
+<form class='form' action="/authentication/signup" method="POST" enctype="multipart/form-data">
   
+  <p class="greeting">Hi there! Thanks for signing up </p>
   <label class='label' for="input-name">Name</label>
   <input class='input' type="text" id="input-name" name="name" placeholder="John Doe" />
 
-<label for="image-input">Add your image</label>
-    <input id="image-input" name ="image" type="file"/> 
+<label class='label'for="image-input">Add your image</label>
+    <input class='input' id="image-input" name ="image" type="file"/> 
 
   <label class='label' for="input-email">Email</label>
   <input class='input' type="email" id="input-email" name="email" placeholder="Your Email" />
 
   <label class='label' for="input-type">What kind of user are you?</label>
 
-  <select class='input' name="type" id="type-input">
-    <option value="Pet Owner">Pet Owner</option>
-    <option value="Petsitter">Petsitter</option>
+  <select class='input' name="type" id="type-input" >
+    <option class="select" value="Pet Owner">Pet Owner</option>
+    <option class="select" value="Petsitter">Petsitter</option>
   </select>
 
   <label class='label' for="input-location">Location</label>
@@ -24,4 +26,5 @@
 
   <button class='sign'>Sign Up</button>
 </form>
+</div>
 

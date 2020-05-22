@@ -1,4 +1,7 @@
-<div>
+
+<div class="center container">
+
+<div class="post-content">
     {{#each posts}}
         <a href='/user/{{creator._id}}'>{{ creator.name }}</a>
         <h4>{{title}}</h4>
@@ -6,12 +9,14 @@
         <p>Starting Date: {{date startDate }}</p>
         <p>End Date: {{date endDate }}</p>
 
-        <p>Are you interested in providing this service?</p>
+        <p><strong>Are you interested in providing this service?</strong></p>
         <form action="/post/{{_id}}/contactowner" method="POST">
-            <button>Contact the Pet Owner</button>
+        <div class="align">
+            <button class="contact-button">Contact Pet Owner</button>
+        </div>
         </form>
 
     {{/each}}
-
+</div>
 </div>
 
