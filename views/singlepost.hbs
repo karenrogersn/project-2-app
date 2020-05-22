@@ -1,5 +1,6 @@
-<div class="center">
+<div class="center ">
 {{#with post}}
+<div class="post-content">
 
 <div>
     <p>{{ title }}</p>
@@ -7,20 +8,21 @@
     <p>{{date startDate }}</p>
     <p>{{date endDate }}</p>
 
-    <p>Are you interested in providing this service?</p>
-    <form action="/post/{{_id}}/contactowner" method="POST">
-        <button>Contact Pet Owner</button>
+    <p><strong>Are you interested in providing this service?</strong></p>
+    </div>
+<div class="single-post-view">
+    <form class="single-form" action="/post/{{_id}}/contactowner" method="POST">
+        <button class="contact-button single">Contact Pet Owner</button>
     </form>
 
-<form action='/post/{{_id}}/edit' method='POST'>
-     <button>Edit post</button>
-</form>
 
-<form action='/post/{{_id}}/delete' method='POST'>
-     <button>Delete post</button>
+
+<form class="single-form" action='/post/{{_id}}/delete' method='POST'>
+     <button class="contact-button single">Delete post</button>
 </form>
 {{/with}}
 
+</div>
 </div>
 </div>
 

@@ -408,23 +408,33 @@ hr {
       line-height: 1.5em;
       text-align: justify;
       font-weight: 200; }
-    .container .post-content button {
-      color: #fff;
-      font-size: 1em;
-      font-weight: 300;
-      background-color: #ef6327;
-      padding: 6px 10px;
-      width: 10em;
-      height: 2.5em;
-      border-radius: 0.3em;
-      margin-bottom: 3em;
-      position: relative;
-      font-family: 'Roboto', sans-serif; }
     .container .post-content button:active {
       top: -1px; }
     .container .post-content .align {
       display: flex;
       justify-content: center; }
+
+.contact-button {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 300;
+  background-color: #ef6327;
+  padding: 6px 10px;
+  width: 10em;
+  height: 2.5em;
+  border-radius: 0.3em;
+  margin-bottom: 3em;
+  position: relative;
+  font-family: 'Roboto', sans-serif; }
+
+.single-post-view {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+
+.single-form {
+  margin-right: 2em;
+  margin-top: 2em; }
 
 .review {
   background-color: #fff;

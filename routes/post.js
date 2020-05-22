@@ -16,6 +16,14 @@ const transporter = nodemailer.createTransport({
     pass: process.env.NODEMAILER_PASSWORD
   }
 });
+// const transporter = nodemailer.createTransport({
+//   service: 'smtp.gmail.com',
+//   auth: {
+//     type:'login',
+//     user: process.env.NODEMAILER_EMAIL,
+//     pass: process.env.NODEMAILER_PASSWORD
+//   }
+// });
 
 //END OF CONFIGURING NODEMAILER//
 //display all of the posts
@@ -59,9 +67,11 @@ postRouter.post('/postcreate', routeGuard, (req, res, next) => {
 postRouter.post('/:postId/contactowner', (req, res, next) => {
   //CONFIGURE THE EMAIL TO BE SENT
   //Step 2
+  console.log('REQ.USER', req.user);
   const postId = req.params.postId;
   //I have the sitter information in the user that's logged in
   const { name, email, _id } = req.user;
+
   //need information:
   // postid --> we could get the info of the owner
   // user contacting --> req.user
