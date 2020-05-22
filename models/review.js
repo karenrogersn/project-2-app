@@ -11,7 +11,7 @@ const reviewSchema = new mongoose.Schema({
   },
   message: {
     type: String,
-    maxlength: 2000
+    maxlength: 200
   },
 
   creator: {
