@@ -46,11 +46,16 @@ userRouter.get('/:userId', (req, res, next) => {
 
   let user;
   let posts;
+  let userIsOwner;
 
   User.findOne({ _id: userId })
     .then((document) => {
       user = document;
-
+      if (user.type === 'Pet Owner') {
+        userIsOwner = true;
+      } else {
+        userIsOwner = false;
+      }
       return Post.find({ creator: userId });
     })
     .then((document2) => {
@@ -58,7 +63,8 @@ userRouter.get('/:userId', (req, res, next) => {
       return Review.find({ recipient: userId }).populate('creator recipient');
     })
     .then((reviews) => {
-      res.render('profile', { user, posts, reviews });
+      console.log(userIsOwner);
+      res.render('profile', { user, posts, reviews, userIsOwner });
     })
     .catch((error) => {
       next(error);

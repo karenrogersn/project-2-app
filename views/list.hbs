@@ -6,8 +6,8 @@
         <a href='/user/{{creator._id}}'>{{ creator.name }}</a>
         <h4>{{title}}</h4>
         <p>{{ message }}</p>
-        <p>{{ startDate }}</p>
-        <p>{{ endDate }}</p>
+        <p>Starting Date: {{date startDate }}</p>
+        <p>End Date: {{date endDate }}</p>
 
         <p><strong>Are you interested in providing this service?</strong></p>
         <form action="/post/{{_id}}/contactowner" method="POST">
